@@ -126,6 +126,8 @@ Enter your API key — it stays in `localStorage`, never leaves your browser.
 
 **Supported providers:** Groq (free tier), OpenAI, OpenRouter
 
+The obvious knobs are at the top of `annotator-standalone.html` — `PROVIDERS`, `SYSTEM_PROMPT`, `max_tokens`, segment count, `KW_MAP`.
+
 ### Self-host (Node.js)
 
 ```bash
