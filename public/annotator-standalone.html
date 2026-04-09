@@ -192,7 +192,7 @@ Rules:
 
 Complexity 1–10 = expertise required: 1=toddler, 3=teenager, 5=school A-student, 7=junior professional, 9=world-class expert. News/gossip=2–3, journalism=4–6, academic=8–10.
 
-Task: split N paragraphs into 3–7 thematic groups AND classify each. Ranges must be contiguous and cover ALL paragraphs 0 to N-1. Title: 3–6 words in the SAME LANGUAGE as the text.
+Task: split N paragraphs into 3–10 thematic groups AND classify each. More groups = more insight. Ranges must be contiguous and cover ALL paragraphs 0 to N-1. Title: 3–6 words in the SAME LANGUAGE as the text.
 
 Return ONLY this JSON (no markdown):
 {"type":"informational","segments":[{"from":0,"to":2,"title":"Short title","angle":310,"category":"Psychology","complexity":5}]}`;
@@ -257,7 +257,7 @@ async function groqClassify(paras) {
     const res = await fetch(provider.url, {
       method: 'POST',
       headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: provider.model, temperature: 0.1, max_tokens: 800,
+      body: JSON.stringify({ model: provider.model, temperature: 0.1, max_tokens: 1200,
         messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: `${paras.length} paragraphs (0–${paras.length-1}):\n${paraList}` }] })
     });
     if (!res.ok) throw new Error('Groq error ' + res.status);
