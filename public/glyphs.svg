@@ -1,0 +1,30 @@
+<svg width="520" height="144" viewBox="0 0 520 144" xmlns="http://www.w3.org/2000/svg">
+  <!-- Emo+Mind 315° -->
+  <g transform="translate(10,12) scale(1.2)">
+    <g transform="rotate(315 50 60)">
+      <path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="34" r="8" fill="#7c3aed"/>
+    </g>
+  </g>
+  <!-- Org/Politics 100° -->
+  <g transform="translate(140,12) scale(1.2)">
+    <g transform="rotate(100 50 60)">
+      <path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="34" r="8" fill="#d97706"/>
+    </g>
+  </g>
+  <!-- Body/Food 190° -->
+  <g transform="translate(270,12) scale(1.2)">
+    <g transform="rotate(190 50 60)">
+      <path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="34" r="8" fill="#16a34a"/>
+    </g>
+  </g>
+  <!-- Emo/Drama 270° -->
+  <g transform="translate(400,12) scale(1.2)">
+    <g transform="rotate(270 50 60)">
+      <path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="34" r="8" fill="#db2777"/>
+    </g>
+  </g>
+</svg>

@@ -34,7 +34,7 @@ Most people navigate text the way they navigate an unfamiliar city — by landma
 
 ## The Fish Glyph
 
-<svg width="120" height="144" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(315 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#7c3aed"/></g></svg> <svg width="120" height="144" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(100 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#d97706"/></g></svg> <svg width="120" height="144" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(190 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#16a34a"/></g></svg> <svg width="120" height="144" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(270 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#db2777"/></g></svg>
+![Fish glyphs: Emo+Mind · Org · Body · Emo](public/glyphs.svg)
 
 *Fish glyphs pointing toward: Emo+Mind (315°) · Org/Politics (100°) · Body/Food (190°) · Emo/Drama (270°)*
 
