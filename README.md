@@ -2,10 +2,14 @@
 
 **Fisheye 360** is an open-source tool that classifies any text across a **360° semantic compass** divided into 36 categories — and visualizes the result as a swimming fish glyph pointing toward the dominant theme.
 
+![Fisheye 360 diagram](public/fish-eye_diagram.jpg)
+
 > Paste a political article → fish points toward `Org/Politics (100°)`  
 > Paste a recipe → fish points toward `Body/Food (190°)`  
 > Paste a philosophy essay → fish points toward `Emo/Philosophy (320°)`  
 > Paste a scientific paper → fish points toward `Mind/Biology (330°)` with complexity 9–10
+
+![Fisheye 360](public/fish-eye.jpg)
 
 ---
 
