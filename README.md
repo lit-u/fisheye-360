@@ -1,5 +1,7 @@
 # Fisheye 360 — Text Classifier
 
+<svg width="48" height="58" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(315 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#7c3aed"/></g></svg>
+
 <img src="public/fish-eye.jpg" width="180" align="right" style="border-radius:12px;margin-left:1.5rem">
 
 **Fisheye 360** classifies any text across a **360° semantic compass** — and shows the result as a rotating fish glyph pointing toward the dominant theme.
@@ -32,8 +34,6 @@ Most people navigate text the way they navigate an unfamiliar city — by landma
 
 ## The Fish Glyph
 
-<img src="public/fish-eye_diagram.jpg" width="600">
-
 The fish is defined by a single SVG path:
 
 ```js
@@ -57,6 +57,8 @@ Rotate it to any angle — it always points its nose in that direction. Designed
 ---
 
 ## The 360° Compass
+
+<img src="public/fish-eye_diagram.jpg" width="600">
 
 The compass has **4 primary axes**, each spanning 90°:
 
