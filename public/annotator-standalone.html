@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fisheye 360</title>
+  <style>
+* { box-sizing: border-box; }
+body { font-family: Georgia, serif; background: #fafaf9; color: #1c1c1c; margin: 0; padding: 2rem; min-height: 100vh; }
+.app { max-width: 760px; margin: 0 auto; }
+
+.hero-header { display: flex; align-items: center; gap: 1.4rem; margin-bottom: 2rem; }
+.hero-img { width: 180px; height: 180px; object-fit: cover; border-radius: 14px; flex-shrink: 0; box-shadow: 0 4px 16px rgba(0,0,0,.13); }
+.hero-text { flex: 1; }
+h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: .02em; margin: 0 0 0.35rem; line-height: 1.4; }
+.subtitle { font-size: 0.8rem; color: #888; margin: 0 0 0.9rem; }
+.hero-btn { display: inline-block; padding: 0.45rem 1.2rem; background: #f5c518; color: #1c1c1c; font-family: sans-serif; font-size: 0.85rem; font-weight: 700; border-radius: 7px; text-decoration: none; letter-spacing: 0.03em; transition: background .15s; }
+.hero-btn:hover { background: #e0b010; }
+
+/* API key bar */
+.apikey-bar { display: flex; gap: 0.6rem; align-items: center; margin-bottom: 1.2rem; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 8px; padding: 0.6rem 0.9rem; }
+.apikey-bar label { font-family: sans-serif; font-size: 0.78rem; color: #888; white-space: nowrap; }
+.apikey-bar input { flex: 1; border: none; outline: none; font-family: monospace; font-size: 0.82rem; color: #333; background: transparent; }
+.apikey-bar button { padding: 0.3rem 0.8rem; font-size: 0.78rem; font-family: sans-serif; background: #1c1c1c; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+
+.input-area textarea { width: 100%; min-height: 160px; padding: 1rem; font-family: Georgia, serif; font-size: 1rem; line-height: 1.7; border: 1.5px solid #ddd; border-radius: 8px; resize: vertical; background: #fff; color: #1c1c1c; outline: none; transition: border-color .15s; }
+.input-area textarea:focus { border-color: #aaa; }
+.controls { display: flex; align-items: center; gap: 1rem; margin-top: 0.75rem; }
+button#analyzeBtn { padding: 0.5rem 1.4rem; background: #1c1c1c; color: #fff; border: none; border-radius: 6px; font-family: Georgia, serif; font-size: 0.9rem; cursor: pointer; transition: opacity .15s; }
+button#analyzeBtn:hover { opacity: .75; }
+button#analyzeBtn:disabled { opacity: .4; cursor: default; }
+.status { font-size: 0.8rem; color: #888; }
+
+.article-summary { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1rem 1.2rem; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; margin: 2rem auto; font-family: sans-serif; box-shadow: 0 2px 12px rgba(0,0,0,.07); max-width: 360px; }
+.art-fish { flex-shrink: 0; padding-top: 2px; }
+.art-fish svg { display: block; }
+.art-body { flex: 1; }
+
+.output { margin-top: 2.5rem; line-height: 1.9; font-size: 1.05rem; }
+.boem-para { margin-bottom: 1.2em; }
+.boem-chunk { background: #f0faf2; border: 1.5px solid #d6f0dc; border-radius: 12px; padding: 1.1rem 1.3rem 0.9rem; margin: 0 0 1.4rem 0; }
+.boem-chunk-header { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.75rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--chunk-border, #e8e8e8); }
+.boem-chunk-title { font-family: sans-serif; font-size: 0.75rem; font-weight: 700; color: var(--chunk-col); letter-spacing: 0.07em; text-transform: uppercase; }
+.boem-fish { display: inline-block; vertical-align: middle; cursor: pointer; margin: 0 2px 0 8px; flex-shrink: 0; opacity: .75; overflow: visible; transition: opacity .15s, transform .15s; }
+.boem-fish:hover { opacity: 1; transform: scale(1.15); }
+
+#boem-circle-container { margin-top: 3rem; display: flex; justify-content: center; }
+#boem-circle-container svg { display: block; }
+
+#boem-tooltip { position: fixed; display: none; background: #fff; border: 1.5px solid #e0e0e0; border-radius: 10px; padding: 0.9rem 1.1rem; min-width: 190px; box-shadow: 0 4px 20px rgba(0,0,0,.12); font-family: sans-serif; font-size: 0.78rem; z-index: 9999; pointer-events: none; }
+.tooltip-dominant { font-weight: 700; margin-bottom: 0.2rem; font-size: 0.84rem; }
+.tooltip-meta { font-size: 0.73rem; color: #888; margin-bottom: 0.55rem; }
+.tooltip-row { display: flex; align-items: center; gap: 0.45rem; margin-bottom: 0.28rem; }
+.tooltip-label { width: 36px; font-size: 0.72rem; font-weight: 600; flex-shrink: 0; }
+.tooltip-bar-bg { flex: 1; height: 5px; background: #eee; border-radius: 3px; overflow: hidden; }
+.tooltip-bar-fill { height: 100%; border-radius: 3px; }
+.tooltip-pct { width: 30px; text-align: right; font-size: 0.72rem; color: #999; }
+.tooltip-complexity { display: flex; align-items: center; gap: 0.4rem; color: #777; margin-top: 0.55rem; font-size: 0.72rem; }
+.complexity-dots { display: flex; gap: 3px; }
+.complexity-dot { width: 7px; height: 7px; border-radius: 50%; background: #ddd; }
+.complexity-dot.active { background: #444; }
+
+#compass-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 10000; align-items: center; justify-content: center; }
+.compass-card { background: #fff; border-radius: 16px; padding: 1.5rem; display: flex; gap: 1.5rem; align-items: flex-start; max-width: 560px; width: 90%; box-shadow: 0 12px 40px rgba(0,0,0,.18); position: relative; }
+#compass-close { position: absolute; top: 0.75rem; right: 0.9rem; background: none; border: none; font-size: 1rem; cursor: pointer; color: #aaa; line-height: 1; padding: 0.2rem 0.4rem; }
+#compass-close:hover { color: #555; }
+#compass-svg svg { display: block; flex-shrink: 0; }
+.compass-info { flex: 1; font-family: sans-serif; font-size: 0.8rem; padding-top: 0.25rem; }
+#compass-text { font-family: Georgia, serif; font-size: 0.88rem; color: #333; margin: 0 0 0.9rem; line-height: 1.5; }
+#compass-category { font-size: 0.78rem; margin: 0 0 0.5rem; font-weight: 600; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <div class="hero-header">
+    <img src="fisheye.jpg" class="hero-img" alt="Fisheye" onerror="this.style.display='none'">
+    <div class="hero-text">
+      <h1>Fisheye 360 — Text Classifier</h1>
+      <p class="subtitle">Paste any text and the fish shows its thematic direction across 36 categories.</p>
+      <a href="https://www.sekmes.lt/360/index.html" class="hero-btn" target="_blank">Your 360°</a>
+    </div>
+  </div>
+
+  <!-- API Key -->
+  <div class="apikey-bar">
+    <select id="providerSelect" style="border:none;outline:none;font-family:sans-serif;font-size:0.82rem;color:#555;background:transparent;cursor:pointer">
+      <option value="groq">Groq (free)</option>
+      <option value="openai">OpenAI</option>
+      <option value="openrouter">OpenRouter</option>
+    </select>
+    <span style="color:#ddd">|</span>
+    <input type="password" id="apiKeyInput" placeholder="Paste API key — saved locally, never leaves your browser">
+    <button id="saveKeyBtn">Save</button>
+  </div>
+  <p style="font-size:0.72rem;color:#aaa;margin:-0.6rem 0 1rem;font-family:sans-serif">
+    🔒 Your key is stored only in <code>localStorage</code> of this browser. It is sent directly to the LLM provider — this page has no backend and no analytics.
+  </p>
+
+  <div class="input-area">
+    <textarea id="textInput" placeholder="Paste text here... (Ctrl+Enter to analyze)"></textarea>
+    <div class="controls">
+      <button id="analyzeBtn">Analyze</button>
+      <span class="status" id="status"></span>
+    </div>
+  </div>
+
+  <div class="output" id="output"></div>
+  <div id="boem-circle-container"></div>
+</div>
+
+<div id="boem-tooltip"></div>
+
+<div id="compass-modal">
+  <div class="compass-card">
+    <button id="compass-close">✕</button>
+    <div id="compass-svg"></div>
+    <div class="compass-info">
+      <p id="compass-text"></p>
+      <p id="compass-category"></p>
+      <div id="compass-bars"></div>
+      <div class="tooltip-complexity" style="margin-top:.6rem">
+        <span>Complexity</span>
+        <div class="complexity-dots" id="compass-complexity"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const FISH_PATH = 'M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116';
+
+const CATEGORIES = [
+  'Mathematics',       // 0
+  'AI, ML',            // 10
+  'Physics, IT',       // 20
+  'Engineering',       // 30
+  'Electronics',       // 40
+  'Mechanics',         // 50
+  'Architecture',      // 60
+  'Statistics',        // 70
+  'Finance',           // 80
+  'Law',               // 90
+  'Politics',          // 100
+  'Governance',        // 110
+  'Writing',           // 120
+  'Crafts',            // 130
+  'Construction',      // 140
+  'Religion',          // 150
+  'Travel',            // 160
+  'Aggression',        // 170
+  'Physical Force',    // 180
+  'Food',              // 190
+  'Sex / Family',      // 200
+  'Home',              // 210
+  'Cooking',           // 220
+  'Care',              // 230
+  'Empathy',           // 240
+  'Fashion',           // 250
+  'Music',             // 260
+  'Drama',             // 270
+  'Literature',        // 280
+  'Media / Design',    // 290
+  'History',           // 300
+  'Psychology',        // 310
+  'Philosophy',        // 320
+  'Biology',           // 330
+  'Medicine',          // 340
+  'Chemistry',         // 350
+];
+
+const PROVIDERS = {
+  groq:       { url: 'https://api.groq.com/openai/v1/chat/completions',        model: 'llama-3.1-8b-instant' },
+  openai:     { url: 'https://api.openai.com/v1/chat/completions',             model: 'gpt-4o-mini' },
+  openrouter: { url: 'https://openrouter.ai/api/v1/chat/completions',          model: 'google/gemini-2.0-flash-001' },
+};
+
+const SYSTEM_PROMPT = `You are a Fisheye 360 text analyzer. The 360° circle has 36 categories (every 10°):
+0: Mathematics, 10: AI/ML, 20: Physics/IT, 30: Engineering, 40: Electronics, 50: Mechanics,
+60: Architecture, 70: Statistics, 80: Finance, 90: Law, 100: Politics, 110: Governance,
+120: Writing, 130: Crafts, 140: Construction, 150: Religion, 160: Travel, 170: Aggression,
+180: Physical Force, 190: Food, 200: Sex/Family, 210: Home, 220: Cooking, 230: Care,
+240: Empathy, 250: Fashion, 260: Music, 270: Drama, 280: Literature, 290: Media/Design,
+300: History/Journalism, 310: Psychology, 320: Philosophy, 330: Biology, 340: Medicine, 350: Chemistry
+
+4 axes: MIND(0°)=abstract reasoning, math, algorithms. ORG(90°)=law, politics, money, management. BODY(180°)=physical world, sports, food. EMO(270°)=music, art, psychology, philosophy.
+
+Rules:
+- Celebrities, awards, concerts, entertainment → 270° Drama or 300° History/Journalism, NEVER Mind
+- Event logistics (tickets, dates, cancellation) → 110° Governance (ORG zone)
+- Neuroscience about behavior/mental health → 310° Psychology
+- Journalistic science article → 300° History/Journalism
+- "company, revenue, market, business" → 80° Finance, NOT Politics
+
+Complexity 1–10 = expertise required: 1=toddler, 3=teenager, 5=school A-student, 7=junior professional, 9=world-class expert. News/gossip=2–3, journalism=4–6, academic=8–10.
+
+Task: split N paragraphs into 3–7 thematic groups AND classify each. Ranges must be contiguous and cover ALL paragraphs 0 to N-1. Title: 3–6 words in the SAME LANGUAGE as the text.
+
+Return ONLY this JSON (no markdown):
+{"type":"informational","segments":[{"from":0,"to":2,"title":"Short title","angle":310,"category":"Psychology","complexity":5}]}`;
+
+// ── Keyword fallback ───────────────────────────────────────────────────
+const KW_MAP = [
+  { angle: 0,   words: ['math','algebra','formula','theorem','logic','calculus'] },
+  { angle: 10,  words: ['artificial intelligence','machine learning','neural','ai','llm','algorithm','gpt','claude'] },
+  { angle: 20,  words: ['programming','code','software','hardware','server','javascript','python','physics','electronics'] },
+  { angle: 80,  words: ['finance','money','investment','economy','market','business','revenue','company'] },
+  { angle: 100, words: ['politics','party','election','president','parliament','government','nato','war','geopolitics'] },
+  { angle: 110, words: ['administration','ministry','management','governance','institution'] },
+  { angle: 160, words: ['travel','tourism','country','nature','holiday'] },
+  { angle: 170, words: ['war','violence','conflict','aggression','weapon','military'] },
+  { angle: 180, words: ['sport','training','athlete','champion','match','run'] },
+  { angle: 190, words: ['food','restaurant','recipe','nutrition','meal','cooking'] },
+  { angle: 260, words: ['music','song','concert','rhythm','dance','singer','band','album'] },
+  { angle: 270, words: ['drama','emotion','feeling','film','series','actor','celebrity','award','eurovision'] },
+  { angle: 280, words: ['literature','book','novel','poetry','author','story'] },
+  { angle: 290, words: ['media','design','video','content','influencer','social media'] },
+  { angle: 300, words: ['news','report','journalism','event','journalist','history','celebrity','star'] },
+  { angle: 310, words: ['psychology','behavior','mind','trauma','therapy','stress','burnout','brain','neuroscience','hormone'] },
+  { angle: 320, words: ['philosophy','ethics','meaning','existence','values','morality'] },
+  { angle: 330, words: ['biology','genetics','evolution','cell','organism','bacteria','dna'] },
+  { angle: 340, words: ['medicine','health','disease','treatment','doctor','symptom','diagnosis','patient'] },
+  { angle: 350, words: ['chemistry','molecule','reaction','laboratory','enzyme','biotech'] },
+];
+
+function keywordAngle(text) {
+  const t = text.toLowerCase();
+  let best = { angle: 300, score: 0 };
+  for (const e of KW_MAP) {
+    const score = e.words.filter(w => t.includes(w)).length;
+    if (score > best.score) best = { angle: e.angle, score };
+  }
+  const words = t.split(/\s+/).length;
+  const expertAngles = new Set([0,10,20,30,320,330,340,350]);
+  const base = expertAngles.has(best.angle) ? 6 : 4;
+  return { angle: best.angle, category: CATEGORIES[best.angle/10], complexity: Math.min(9, Math.max(2, base + (words > 300 ? 1 : 0))) };
+}
+
+function fallback(paras) {
+  const segs = [];
+  for (let i = 0; i < paras.length; i++) {
+    const kw = keywordAngle(paras[i]);
+    const last = segs[segs.length - 1];
+    if (last && last.angle === kw.angle) { last.paraEnd = i; last.text += '\n\n' + paras[i]; }
+    else segs.push({ text: paras[i], paraStart: i, paraEnd: i, title: null, ...kw, angle_pure: kw.angle });
+  }
+  const best = segs.reduce((a, b) => b.complexity > a.complexity ? b : a, segs[0]);
+  return { article: { dominant_angle: best.angle, dominant_category: best.category, complexity: best.complexity, type: 'unknown' }, segments: segs };
+}
+
+// ── Groq call ─────────────────────────────────────────────────────────
+async function groqClassify(paras) {
+  const provider = PROVIDERS[document.getElementById('providerSelect').value] || PROVIDERS.groq;
+  const apiKey = localStorage.getItem('fisheye_groq_key');
+  if (!apiKey) return fallback(paras);
+
+  const paraList = paras.map((p, i) => `${i}: ${p.slice(0, 200)}`).join('\n');
+  try {
+    const res = await fetch(provider.url, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: provider.model, temperature: 0.1, max_tokens: 800,
+        messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: `${paras.length} paragraphs (0–${paras.length-1}):\n${paraList}` }] })
+    });
+    if (!res.ok) throw new Error('Groq error ' + res.status);
+    const data = await res.json();
+    const raw = data.choices?.[0]?.message?.content || '';
+    const parsed = JSON.parse(raw.replace(/```json\n?/g,'').replace(/```\n?/g,'').trim());
+    const articleType = parsed?.type || 'unknown';
+    const ranges = parsed?.segments;
+    if (!Array.isArray(ranges) || ranges.length < 2) throw new Error('bad response');
+
+    const out = ranges.map(({ from, to, title, angle, category, complexity }) => {
+      const a = Math.round((angle ?? 300) / 10) * 10 % 360;
+      return { text: paras.slice(from, Math.min(to, paras.length-1)+1).join('\n\n'),
+               paraStart: from, paraEnd: Math.min(to, paras.length-1),
+               title: title||null, angle: a, angle_pure: a,
+               category: category||CATEGORIES[a/10]||'Unknown',
+               complexity: Math.min(10, Math.max(1, complexity??5)) };
+    });
+
+    // Article BOEM sum
+    function boemRaw(angle) {
+      const axes = { M:0, O:90, B:180, E:270 };
+      const r = {};
+      for (const [k,a] of Object.entries(axes)) { const d=((angle-a+540)%360)-180; r[k]=Math.max(0,Math.cos(d*Math.PI/180)); }
+      return r;
+    }
+    const bs = {M:0,O:0,B:0,E:0}; let tw = 0;
+    for (const s of out) { const w=(s.complexity??5)*((s.paraEnd-s.paraStart)+1); const m=boemRaw(s.angle); for(const k of Object.keys(bs)) bs[k]+=m[k]*w; tw+=w; }
+    for (const k of Object.keys(bs)) bs[k]=Math.round(bs[k]/tw*100);
+    const artAngle = out.reduce((b,s)=>((s.paraEnd-s.paraStart)+1)>((b.paraEnd-b.paraStart)+1)?s:b, out[0]).angle;
+    const artCx = Math.round(out.reduce((s,seg)=>s+seg.complexity,0)/out.length);
+    const artCat = out.reduce((b,s)=>s.complexity>b.complexity?s:b,out[0]).category;
+
+    return { article: { dominant_angle:artAngle, dominant_category:artCat, complexity:artCx, type:articleType, boem:bs }, segments: out };
+  } catch(e) {
+    console.warn('[fisheye] groq failed:', e.message);
+    return fallback(paras);
+  }
+}
+
+// ── Rendering (same as annotator.js) ──────────────────────────────────
+function angleToColor(deg) {
+  const a = ((deg%360)+360)%360;
+  const stops = [{a:0,r:59,g:130,b:246},{a:90,r:234,g:170,b:10},{a:180,r:34,g:197,b:94},{a:270,r:236,g:72,b:153},{a:360,r:59,g:130,b:246}];
+  let i=0; while(i<stops.length-1&&stops[i+1].a<=a)i++;
+  const s1=stops[i],s2=stops[i+1]||stops[0],t=(a-s1.a)/(s2.a-s1.a);
+  return `rgb(${Math.round(s1.r+t*(s2.r-s1.r))},${Math.round(s1.g+t*(s2.g-s1.g))},${Math.round(s1.b+t*(s2.b-s1.b))})`;
+}
+function angleToDir8(angle) {
+  const a=((angle%360)+360)%360;
+  if(a<=15||a>345) return {label:'Mind',color:'#3b82f6'};
+  if(a<=75)        return {label:'Mind + Org',color:'#6ba827'};
+  if(a<=105)       return {label:'Org',color:'#d97706'};
+  if(a<=165)       return {label:'Org + Body',color:'#c4680e'};
+  if(a<=195)       return {label:'Body',color:'#16a34a'};
+  if(a<=255)       return {label:'Body + Emo',color:'#9333ea'};
+  if(a<=285)       return {label:'Emo',color:'#db2777'};
+  return                  {label:'Emo + Mind',color:'#7c3aed'};
+}
+function angleToBoemMix(angle) {
+  const axes={M:0,O:90,B:180,E:270},raw={};
+  for(const[k,a]of Object.entries(axes)){const d=((angle-a+540)%360)-180;raw[k]=Math.max(0,Math.cos(d*Math.PI/180));}
+  const total=Object.values(raw).reduce((s,v)=>s+v,0)||1,mix={};
+  for(const k of Object.keys(raw))mix[k]=raw[k]/total;
+  return mix;
+}
+function boemToXY(deg,r,cx,cy){const rad=(deg-90)*Math.PI/180;return{x:cx+r*Math.cos(rad),y:cy+r*Math.sin(rad)};}
+function categoryForAngle(angle){return CATEGORIES[Math.round(((angle%360)+360)%360/10)%36]||'';}
+function fishSVG(angle,px,extraClass='boem-fish'){
+  const w=(px*100/120).toFixed(1),eyeR=(1.4*100/px).toFixed(2),col=angleToColor(angle);
+  return `<svg class="${extraClass}" width="${w}" height="${px}" viewBox="0 0 100 120" aria-hidden="true"><g transform="rotate(${angle} 50 60)"><path d="${FISH_PATH}" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/><circle cx="50" cy="34" r="${eyeR}" fill="${col}"/></g></svg>`;
+}
+function splitSegments(text){
+  let parts=text.split(/\n\s*\n/);
+  if(parts.length<3)parts=text.split(/\n/);
+  return parts.map((p,i)=>({text:p.trim(),paraIndex:i})).filter(s=>s.text.length>40).slice(0,40);
+}
+function barsHTML(mix){
+  return [['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#db2777']]
+    .sort((a,b)=>mix[b[0]]-mix[a[0]])
+    .map(([k,label,col])=>{const pct=Math.round(mix[k]*100);return`<div class="tooltip-row"><span class="tooltip-label" style="color:${col}">${label}</span><div class="tooltip-bar-bg"><div class="tooltip-bar-fill" style="width:${pct}%;background:${col}"></div></div><span class="tooltip-pct">${pct}%</span></div>`;})
+    .join('');
+}
+function dotsHTML(cx){return[1,2,3,4,5,6,7,8,9,10].map(i=>`<span class="complexity-dot ${i<=cx?'active':''}"></span>`).join('');}
+
+function renderArticleSummary(article){
+  const angle=article.dominant_angle??0,dir=angleToDir8(angle),cat=article.dominant_category||categoryForAngle(angle);
+  const rawBoem=article.boem;
+  const mix=rawBoem?{M:rawBoem.M/100,O:rawBoem.O/100,B:rawBoem.B/100,E:rawBoem.E/100}:angleToBoemMix(angle);
+  const cx=article.complexity??5;
+  const bar=document.createElement('div');bar.className='article-summary';
+  bar.innerHTML=`<div class="art-fish">${fishSVG(angle,44)}</div><div class="art-body"><div class="tooltip-dominant" style="color:${dir.color}">${dir.label}</div><div class="tooltip-meta">${angle}° · ${cat}${article.type&&article.type!=='unknown'?` · <em>${article.type}</em>`:''}</div>${barsHTML(mix)}<div class="tooltip-complexity"><span>Complexity ${cx}/10</span><div class="complexity-dots">${dotsHTML(cx)}</div></div></div>`;
+  document.getElementById('output').appendChild(bar);
+}
+
+function renderAnnotated(segments,classifications,fontSize=17){
+  const container=document.getElementById('output');
+  for(let ci=0;ci<classifications.length;ci++){
+    const item=classifications[ci],start=item.paraStart??ci,end=Math.min(item.paraEnd??ci,segments.length-1),col=angleToColor(item.angle);
+    const chunkDiv=document.createElement('div');chunkDiv.className='boem-chunk';
+    chunkDiv.style.setProperty('--chunk-col',col);
+    chunkDiv.style.setProperty('--chunk-border',col.replace('rgb(','rgba(').replace(')',', 0.22)'));
+
+    const header=document.createElement('div');header.className='boem-chunk-header';
+    const lbl=document.createElement('span');lbl.className='boem-chunk-title';lbl.textContent=item.title||item.category||categoryForAngle(item.angle);header.appendChild(lbl);
+    const tmp=document.createElement('span');tmp.innerHTML=fishSVG(item.angle,fontSize*1.6);
+    const svg=tmp.firstElementChild;svg.dataset.boem=JSON.stringify(item);svg.dataset.index=ci;
+    svg.addEventListener('mouseenter',showTooltip);svg.addEventListener('mouseleave',hideTooltip);svg.addEventListener('mousemove',moveTooltip);
+    svg.addEventListener('click',()=>{const all=Array.from(document.querySelectorAll('.boem-fish[data-boem]')).map(el=>JSON.parse(el.dataset.boem));openCompass(item,ci,all);});
+    header.appendChild(svg);chunkDiv.appendChild(header);
+
+    for(let pi=start;pi<=end;pi++){const p=document.createElement('div');p.className='boem-para';p.appendChild(document.createTextNode(segments[pi].text));chunkDiv.appendChild(p);}
+    container.appendChild(chunkDiv);
+  }
+}
+
+function renderBoemCircle(classifications,article){
+  const wrap=document.getElementById('boem-circle-container');wrap.innerHTML='';
+  const S=760,cx=380,cy=380,rMin=30,rMax=240,ringStep=(rMax-rMin)/10;
+  let p=[`<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" xmlns="http://www.w3.org/2000/svg">`];
+  const quadrants=[{center:0,color:'#2563eb'},{center:90,color:'#d97706'},{center:180,color:'#16a34a'},{center:270,color:'#db2777'}];
+  for(const q of quadrants){const a1=(q.center-45-90)*Math.PI/180,a2=(q.center+45-90)*Math.PI/180;const x1=cx+rMax*Math.cos(a1),y1=cy+rMax*Math.sin(a1),x2=cx+rMax*Math.cos(a2),y2=cy+rMax*Math.sin(a2);p.push(`<path d="M${cx},${cy} L${x1.toFixed(2)},${y1.toFixed(2)} A${rMax},${rMax} 0 0,1 ${x2.toFixed(2)},${y2.toFixed(2)} Z" fill="${q.color}" opacity="0.28"/>`);}
+  for(let c=1;c<=10;c++){const r=rMin+c*ringStep;p.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${c%5===0?'#bbb':'#ddd'}" stroke-width="${c%5===0?1.5:0.7}"/>`);}
+  for(let i=0;i<36;i++){const rad=(i*10-90)*Math.PI/180,x2=cx+rMax*Math.cos(rad),y2=cy+rMax*Math.sin(rad),isMajor=i%9===0;p.push(`<line x1="${cx}" y1="${cy}" x2="${x2.toFixed(2)}" y2="${y2.toFixed(2)}" stroke="${isMajor?'#aaa':'#ddd'}" stroke-width="${isMajor?1.3:0.6}"/>`);}
+  for(const a of[45,135,225,315]){const rad=(a-90)*Math.PI/180;p.push(`<line x1="${cx}" y1="${cy}" x2="${(cx+rMax*Math.cos(rad)).toFixed(2)}" y2="${(cy+rMax*Math.sin(rad)).toFixed(2)}" stroke="#aaa" stroke-width="1.3" stroke-dasharray="4,3"/>`);}
+  for(let i=0;i<36;i++){if(i%2!==0)continue;const deg=i*10,rad=(deg-90)*Math.PI/180,rLbl=rMax+14,lx=cx+rLbl*Math.cos(rad),ly=cy+rLbl*Math.sin(rad),col=angleToColor(deg),anchor=lx<cx-6?'end':lx>cx+6?'start':'middle';p.push(`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle" font-size="8.5" font-family="sans-serif" fill="${col}" font-weight="600">${CATEGORIES[i]}</text>`);}
+  for(const c of[1,5,10]){const r=rMin+c*ringStep;p.push(`<text x="${(cx+4).toFixed(1)}" y="${(cy-r-3).toFixed(1)}" font-size="7.5" font-family="sans-serif" fill="#aaa">${c}</text>`);}
+  const lblDefs=[{a:0,col:'#3b82f6',title:'MIND',lines:['Logical · Analytical','Scientific · Technical'],anchor:'middle',x:cx,y:cy-rMax-52},{a:90,col:'#d97706',title:'ORG',lines:['Social · Coordination','Management · Communication'],anchor:'start',x:cx+rMax+28,y:cy},{a:180,col:'#16a34a',title:'BODY',lines:['Physical · Operational','Logistic · Practical'],anchor:'middle',x:cx,y:cy+rMax+52},{a:270,col:'#db2777',title:'EMO',lines:['Creative · Emotional','Intuitive · Design'],anchor:'end',x:cx-rMax-28,y:cy}];
+  for(const lbl of lblDefs){p.push(`<text x="${lbl.x}" y="${lbl.y}" text-anchor="${lbl.anchor}" dominant-baseline="middle" font-size="15" font-family="sans-serif" fill="${lbl.col}" font-weight="800">${lbl.title}</text>`);p.push(`<text x="${lbl.x}" y="${lbl.y+(lbl.a===0?20:lbl.a===180?-20:-10)}" text-anchor="${lbl.anchor}" dominant-baseline="middle" font-size="9.5" font-family="sans-serif" fill="${lbl.col}" opacity="0.85">${lbl.lines[0]}</text>`);p.push(`<text x="${lbl.x}" y="${lbl.y+(lbl.a===0?33:lbl.a===180?-33:6)}" text-anchor="${lbl.anchor}" dominant-baseline="middle" font-size="9.5" font-family="sans-serif" fill="${lbl.col}" opacity="0.85">${lbl.lines[1]}</text>`);}
+  if(article){const aAngle=article.dominant_angle??0,aCx=article.complexity??5,aR=rMin+aCx*ringStep,aPos=boemToXY(aAngle,aR,cx,cy),aCol=angleToColor(aAngle);p.push(`<circle cx="${aPos.x.toFixed(1)}" cy="${aPos.y.toFixed(1)}" r="12" fill="${aCol}" opacity="0.25" stroke="${aCol}" stroke-width="1.5"/>`);const fPx=18,fW=fPx*100/120;p.push(`<g transform="translate(${(aPos.x-fW/2).toFixed(1)},${(aPos.y-fPx/2).toFixed(1)}) scale(${(fPx/120).toFixed(4)})"><g transform="rotate(${aAngle} 50 60)"><path d="${FISH_PATH}" fill="none" stroke="#555" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="${aCol}"/></g></g>`);}
+  for(let i=0;i<classifications.length;i++){const item=classifications[i],r=rMin+(item.complexity??5)*ringStep,pos=boemToXY(item.angle,r,cx,cy),col=angleToColor(item.angle);p.push(`<circle class="circle-dot" cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="5.5" fill="${col}" stroke="#fff" stroke-width="1.5" opacity="0.88" data-index="${i}" style="cursor:pointer"><title>${item.category} · complexity ${item.complexity}</title></circle>`);}
+  p.push('</svg>');wrap.innerHTML=p.join('');
+  wrap.querySelectorAll('.circle-dot').forEach(dot=>{dot.addEventListener('click',()=>{openCompass(classifications[parseInt(dot.dataset.index,10)],parseInt(dot.dataset.index,10),classifications);});});
+}
+
+function openCompass(item,activeIdx,all){
+  const modal=document.getElementById('compass-modal'),S=260,cx=130,cy=130,rMin=22,rMax=96,ringStep=(rMax-rMin)/10;
+  let p=[`<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}">`];
+  for(let i=0;i<36;i++){const a1=(i*10-90-5)*Math.PI/180,a2=(i*10-90+5)*Math.PI/180,col=angleToColor(i*10);const x1=cx+rMax*Math.cos(a1),y1=cy+rMax*Math.sin(a1),x2=cx+rMax*Math.cos(a2),y2=cy+rMax*Math.sin(a2);p.push(`<path d="M${cx},${cy} L${x1.toFixed(2)},${y1.toFixed(2)} A${rMax},${rMax} 0 0,1 ${x2.toFixed(2)},${y2.toFixed(2)} Z" fill="${col}" opacity="0.07"/>`);}
+  for(let c=1;c<=10;c++){const r=rMin+c*ringStep;p.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${c%5===0?'#bbb':'#ddd'}" stroke-width="${c%5===0?1.2:0.5}"/>`);}
+  for(let i=0;i<36;i++){const rad=(i*10-90)*Math.PI/180;p.push(`<line x1="${cx}" y1="${cy}" x2="${(cx+rMax*Math.cos(rad)).toFixed(1)}" y2="${(cy+rMax*Math.sin(rad)).toFixed(1)}" stroke="${i%9===0?'#aaa':'#ddd'}" stroke-width="${i%9===0?1.2:0.5}"/>`);}
+  for(const[a,lbl,col]of[[0,'M','#3b82f6'],[90,'O','#d97706'],[180,'B','#16a34a'],[270,'E','#db2777']]){const rad=(a-90)*Math.PI/180,r=rMax+12;p.push(`<text x="${(cx+r*Math.cos(rad)).toFixed(1)}" y="${(cy+r*Math.sin(rad)).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-size="11" font-family="sans-serif" fill="${col}" font-weight="700">${lbl}</text>`);}
+  for(let i=0;i<all.length;i++){if(i===activeIdx)continue;const r=rMin+(all[i].complexity??5)*ringStep,pos=boemToXY(all[i].angle,r,cx,cy);p.push(`<circle cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="3.5" fill="${angleToColor(all[i].angle)}" opacity="0.22"/>`);}
+  const r=rMin+(item.complexity??5)*ringStep,pos=boemToXY(item.angle,r,cx,cy),col=angleToColor(item.angle);
+  p.push(`<circle cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="14" fill="${col}" opacity="0.15"/>`);
+  const fPx=19,fW=fPx*100/120;p.push(`<g transform="translate(${(pos.x-fW/2).toFixed(1)},${(pos.y-fPx/2).toFixed(1)}) scale(${(fPx/120).toFixed(4)})"><g transform="rotate(${item.angle} 50 60)"><path d="${FISH_PATH}" fill="none" stroke="#1c1c1c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#1c1c1c"/></g></g>`);
+  p.push('</svg>');
+  const mix=angleToBoemMix(item.angle),sorted=[['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#db2777']].sort((a,b)=>mix[b[0]]-mix[a[0]]);
+  const dominantLabel=mix[sorted[1][0]]>0.20?`${sorted[0][1]} + ${sorted[1][1]}`:sorted[0][1];
+  document.getElementById('compass-svg').innerHTML=p.join('');
+  document.getElementById('compass-text').textContent=item.text;
+  document.getElementById('compass-category').innerHTML=`<span style="color:${sorted[0][2]};font-weight:700">${dominantLabel}</span> <span style="color:#888;font-size:.75rem">${item.angle_pure??item.angle}° · ${item.category||categoryForAngle(item.angle)}</span>`;
+  document.getElementById('compass-bars').innerHTML=barsHTML(mix);
+  document.getElementById('compass-complexity').innerHTML=dotsHTML(item.complexity);
+  modal.style.display='flex';
+}
+function closeCompass(){document.getElementById('compass-modal').style.display='none';}
+
+const tooltip=document.getElementById('boem-tooltip');
+function showTooltip(e){
+  const item=JSON.parse(e.currentTarget.dataset.boem),mix=angleToBoemMix(item.angle);
+  const sorted=[['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#db2777']].sort((a,b)=>mix[b[0]]-mix[a[0]]);
+  const dominantLabel=mix[sorted[1][0]]>0.20?`${sorted[0][1]} + ${sorted[1][1]}`:sorted[0][1];
+  tooltip.innerHTML=`<div class="tooltip-dominant" style="color:${sorted[0][2]}">${dominantLabel}</div><div class="tooltip-meta">${item.angle_pure??item.angle}° · ${item.category||''}</div>${barsHTML(mix)}<div class="tooltip-complexity"><span>Complexity ${item.complexity}/10</span><div class="complexity-dots">${dotsHTML(item.complexity)}</div></div>`;
+  tooltip.style.display='block';positionTooltip(e);
+}
+function hideTooltip(){tooltip.style.display='none';}
+function moveTooltip(e){positionTooltip(e);}
+function positionTooltip(e){const tw=tooltip.offsetWidth||200,th=tooltip.offsetHeight||80,tx=e.clientX+14,ty=e.clientY+14;tooltip.style.left=(tx+tw>window.innerWidth?tx-tw-28:tx)+'px';tooltip.style.top=(ty+th>window.innerHeight?ty-th-28:ty)+'px';}
+
+// ── API key ───────────────────────────────────────────────────────────
+document.getElementById('apiKeyInput').value = localStorage.getItem('fisheye_groq_key') || '';
+document.getElementById('providerSelect').value = localStorage.getItem('fisheye_provider') || 'groq';
+document.getElementById('saveKeyBtn').addEventListener('click', () => {
+  const key = document.getElementById('apiKeyInput').value.trim();
+  const provider = document.getElementById('providerSelect').value;
+  if (key) { localStorage.setItem('fisheye_groq_key', key); localStorage.setItem('fisheye_provider', provider); document.getElementById('status').textContent = 'Key saved.'; }
+});
+
+// ── Main ──────────────────────────────────────────────────────────────
+document.getElementById('analyzeBtn').addEventListener('click', async () => {
+  const text = document.getElementById('textInput').value.trim();
+  if (!text) return;
+  const btn = document.getElementById('analyzeBtn'), status = document.getElementById('status');
+  btn.disabled = true; status.textContent = 'Analyzing...';
+  document.getElementById('output').innerHTML = '';
+  document.getElementById('boem-circle-container').innerHTML = '';
+  try {
+    const segments = splitSegments(text);
+    if (!segments.length) { status.textContent = 'Text too short.'; return; }
+    const paras = segments.map(s => s.text);
+    const result = await groqClassify(paras);
+    const article = result?.article ?? null;
+    const classified = result?.segments ?? [];
+    renderAnnotated(segments, classified);
+    if (article) renderArticleSummary(article);
+    renderBoemCircle(classified, article);
+    status.textContent = `${classified.length} segments annotated`;
+  } catch(err) { status.textContent = 'Error: ' + err.message; console.error(err); }
+  finally { btn.disabled = false; }
+});
+document.getElementById('textInput').addEventListener('keydown', e => { if(e.key==='Enter'&&e.ctrlKey) document.getElementById('analyzeBtn').click(); });
+document.getElementById('compass-close').addEventListener('click', closeCompass);
+document.getElementById('compass-modal').addEventListener('click', e => { if(e.target===e.currentTarget) closeCompass(); });
+</script>
+</body>
+</html>
