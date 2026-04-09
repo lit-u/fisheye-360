@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fisheye 360</title>
+  <link rel="stylesheet" href="annotator.css">
+</head>
+<body>
+
+<div class="app">
+  <div class="hero-header">
+    <img src="/img/categories/fisheye.jpg" class="hero-img" alt="Fisheye">
+    <div class="hero-text">
+      <h1>Fisheye 360 teksto klasifikatorius pagal Mind-Org-Body-Emo vektorius</h1>
+      <p class="subtitle">Įkelk tekstą ir žuvytė parodys temos kryptis pagal 36 kategorijų apskritimą.</p>
+      <a href="https://www.sekmes.lt/360/index.html" class="hero-btn">Tavo 360°</a>
+    </div>
+  </div>
+
+  <div class="input-area">
+    <textarea id="textInput" placeholder="Įklijuok tekstą čia... (Ctrl+Enter — analizuoti)"></textarea>
+    <div class="controls">
+      <button id="analyzeBtn">Analizuoti</button>
+      <span class="status" id="status"></span>
+    </div>
+  </div>
+
+  <div class="output" id="output"></div>
+
+  <!-- 360 voratinklis -->
+  <div id="boem-circle-container"></div>
+</div>
+
+<!-- Hover tooltip -->
+<div id="boem-tooltip"></div>
+
+<!-- Compass modal -->
+<div id="compass-modal">
+  <div class="compass-card">
+    <button id="compass-close">✕</button>
+    <div id="compass-svg"></div>
+    <div class="compass-info">
+      <p id="compass-text"></p>
+      <p id="compass-category"></p>
+      <div id="compass-bars"></div>
+      <div class="tooltip-complexity" style="margin-top:.6rem">
+        <span>Sudėtingumas</span>
+        <div class="complexity-dots" id="compass-complexity"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="annotator.js"></script>
+</body>
+</html>
