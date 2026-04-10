@@ -1,5 +1,7 @@
 # Fisheye 360 — Text Classifier
 
+### 🔗 [**Try it live → lit-u.github.io/fisheye-360**](https://lit-u.github.io/fisheye-360/)
+
 <svg width="48" height="58" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(315 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#7c3aed"/></g></svg>
 
 <img src="public/fish-eye.jpg" width="180" align="right" style="border-radius:12px;margin-left:1.5rem">
