@@ -77,7 +77,7 @@ The compass has **4 primary axes**, each spanning 90°:
 
 Between axes — **32 transition categories** at every 10°:
 
-`0° Math` → `10° AI/ML` → `20° Physics/IT` → `30° Engineering` → `40° Electronics` → `50° Mechanics` → `60° Architecture` → `70° Statistics` → `80° Finance` → `90° Law` → `100° Politics` → `110° Governance` → `120° Writing` → `130° Crafts` → `140° Construction` → `150° Religion` → `160° Travel` → `170° Aggression` → `180° Physical Force` → `190° Food` → `200° Sex/Family` → `210° Home` → `220° Cooking` → `230° Care` → `240° Empathy` → `250° Fashion` → `260° Music` → `270° Drama` → `280° Literature` → `290° Media/Design` → `300° History/Journalism` → `310° Psychology` → `320° Philosophy` → `330° Biology` → `340° Medicine` → `350° Chemistry`
+`0° Math` → `10° AI/Tech` → `20° Physics/IT` → `30° Engineering` → `40° Electronics` → `50° Mechanics` → `60° Architecture` → `70° Statistics` → `80° Finance` → `90° Law` → `100° Politics` → `110° Governance` → `120° Writing` → `130° Crafts` → `140° Construction` → `150° Religion` → `160° Travel` → `170° Aggression` → `180° Physical Force` → `190° Food` → `200° Sex/Family` → `210° Home` → `220° Cooking` → `230° Care` → `240° Empathy` → `250° Fashion` → `260° Music` → `270° Drama` → `280° Literature` → `290° Media/Design` → `300° History/Journalism` → `310° Psychology` → `320° Philosophy` → `330° Biology` → `340° Medicine` → `350° Chemistry`
 
 ---
 
