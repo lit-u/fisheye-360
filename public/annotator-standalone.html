@@ -75,7 +75,7 @@ button#analyzeBtn:disabled { opacity: .4; cursor: default; }
   <div class="hero-header">
     <img src="fisheye.jpg" class="hero-img" alt="Fisheye" onerror="this.style.display='none'">
     <div class="hero-text">
-      <h1>Fisheye 360 — Text Classifier <svg width="22" height="26" viewBox="0 0 100 120" style="vertical-align:middle;margin-left:6px"><g transform="rotate(315 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/><circle cx="50" cy="34" r="8" fill="#7c3aed"/></g></svg></h1>
+      <h1>Fisheye 360 — Text Classifier <svg width="22" height="26" viewBox="0 0 100 120" style="vertical-align:middle;margin-left:6px"><g transform="rotate(315 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/><circle cx="50" cy="34" r="8" fill="#dc2626"/></g></svg></h1>
       <p class="subtitle">Paste any text and the fish shows its thematic direction across 36 categories.</p>
     </div>
   </div>
@@ -301,7 +301,7 @@ async function groqClassify(paras) {
 // ── Rendering (same as annotator.js) ──────────────────────────────────
 function angleToColor(deg) {
   const a = ((deg%360)+360)%360;
-  const stops = [{a:0,r:59,g:130,b:246},{a:90,r:234,g:170,b:10},{a:180,r:34,g:197,b:94},{a:270,r:236,g:72,b:153},{a:360,r:59,g:130,b:246}];
+  const stops = [{a:0,r:59,g:130,b:246},{a:90,r:234,g:170,b:10},{a:180,r:34,g:197,b:94},{a:270,r:220,g:38,b:38},{a:360,r:59,g:130,b:246}];
   let i=0; while(i<stops.length-1&&stops[i+1].a<=a)i++;
   const s1=stops[i],s2=stops[i+1]||stops[0],t=(a-s1.a)/(s2.a-s1.a);
   return `rgb(${Math.round(s1.r+t*(s2.r-s1.r))},${Math.round(s1.g+t*(s2.g-s1.g))},${Math.round(s1.b+t*(s2.b-s1.b))})`;
@@ -314,8 +314,8 @@ function angleToDir8(angle) {
   if(a<=165)       return {label:'Org + Body',color:'#c4680e'};
   if(a<=195)       return {label:'Body',color:'#16a34a'};
   if(a<=255)       return {label:'Body + Emo',color:'#9333ea'};
-  if(a<=285)       return {label:'Emo',color:'#db2777'};
-  return                  {label:'Emo + Mind',color:'#7c3aed'};
+  if(a<=285)       return {label:'Emo',color:'#dc2626'};
+  return                  {label:'Emo + Mind',color:'#dc2626'};
 }
 function angleToBoemMix(angle) {
   const axes={M:0,O:90,B:180,E:270},raw={};
@@ -336,7 +336,7 @@ function splitSegments(text){
   return parts.map((p,i)=>({text:p.trim(),paraIndex:i})).filter(s=>s.text.length>40).slice(0,40);
 }
 function barsHTML(mix){
-  return [['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#db2777']]
+  return [['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#dc2626']]
     .sort((a,b)=>mix[b[0]]-mix[a[0]])
     .map(([k,label,col])=>{const pct=Math.round(mix[k]*100);return`<div class="tooltip-row"><span class="tooltip-label" style="color:${col}">${label}</span><div class="tooltip-bar-bg"><div class="tooltip-bar-fill" style="width:${pct}%;background:${col}"></div></div><span class="tooltip-pct">${pct}%</span></div>`;})
     .join('');
@@ -378,14 +378,14 @@ function renderBoemCircle(classifications,article){
   const wrap=document.getElementById('boem-circle-container');wrap.innerHTML='';
   const S=760,cx=380,cy=380,rMin=30,rMax=240,ringStep=(rMax-rMin)/10;
   let p=[`<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" xmlns="http://www.w3.org/2000/svg">`];
-  const quadrants=[{center:0,color:'#2563eb'},{center:90,color:'#d97706'},{center:180,color:'#16a34a'},{center:270,color:'#db2777'}];
+  const quadrants=[{center:0,color:'#2563eb'},{center:90,color:'#d97706'},{center:180,color:'#16a34a'},{center:270,color:'#dc2626'}];
   for(const q of quadrants){const a1=(q.center-45-90)*Math.PI/180,a2=(q.center+45-90)*Math.PI/180;const x1=cx+rMax*Math.cos(a1),y1=cy+rMax*Math.sin(a1),x2=cx+rMax*Math.cos(a2),y2=cy+rMax*Math.sin(a2);p.push(`<path d="M${cx},${cy} L${x1.toFixed(2)},${y1.toFixed(2)} A${rMax},${rMax} 0 0,1 ${x2.toFixed(2)},${y2.toFixed(2)} Z" fill="${q.color}" opacity="0.28"/>`);}
   for(let c=1;c<=10;c++){const r=rMin+c*ringStep;p.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${c%5===0?'#bbb':'#ddd'}" stroke-width="${c%5===0?1.5:0.7}"/>`);}
   for(let i=0;i<36;i++){const rad=(i*10-90)*Math.PI/180,x2=cx+rMax*Math.cos(rad),y2=cy+rMax*Math.sin(rad),isMajor=i%9===0;p.push(`<line x1="${cx}" y1="${cy}" x2="${x2.toFixed(2)}" y2="${y2.toFixed(2)}" stroke="${isMajor?'#aaa':'#ddd'}" stroke-width="${isMajor?1.3:0.6}"/>`);}
   for(const a of[45,135,225,315]){const rad=(a-90)*Math.PI/180;p.push(`<line x1="${cx}" y1="${cy}" x2="${(cx+rMax*Math.cos(rad)).toFixed(2)}" y2="${(cy+rMax*Math.sin(rad)).toFixed(2)}" stroke="#aaa" stroke-width="1.3" stroke-dasharray="4,3"/>`);}
   for(let i=0;i<36;i++){if(i%2!==0)continue;const deg=i*10,rad=(deg-90)*Math.PI/180,rLbl=rMax+14,lx=cx+rLbl*Math.cos(rad),ly=cy+rLbl*Math.sin(rad),col=angleToColor(deg),anchor=lx<cx-6?'end':lx>cx+6?'start':'middle';p.push(`<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle" font-size="8.5" font-family="sans-serif" fill="${col}" font-weight="600">${CATEGORIES[i]}</text>`);}
   for(const c of[1,5,10]){const r=rMin+c*ringStep;p.push(`<text x="${(cx+4).toFixed(1)}" y="${(cy-r-3).toFixed(1)}" font-size="7.5" font-family="sans-serif" fill="#aaa">${c}</text>`);}
-  const lblDefs=[{a:0,col:'#3b82f6',title:'MIND',lines:['Logical · Analytical','Scientific · Technical'],anchor:'middle',x:cx,y:cy-rMax-52},{a:90,col:'#d97706',title:'ORG',lines:['Social · Coordination','Management · Communication'],anchor:'start',x:cx+rMax+28,y:cy},{a:180,col:'#16a34a',title:'BODY',lines:['Physical · Operational','Logistic · Practical'],anchor:'middle',x:cx,y:cy+rMax+52},{a:270,col:'#db2777',title:'EMO',lines:['Creative · Emotional','Intuitive · Design'],anchor:'end',x:cx-rMax-28,y:cy}];
+  const lblDefs=[{a:0,col:'#3b82f6',title:'MIND',lines:['Logical · Analytical','Scientific · Technical'],anchor:'middle',x:cx,y:cy-rMax-52},{a:90,col:'#d97706',title:'ORG',lines:['Social · Coordination','Management · Communication'],anchor:'start',x:cx+rMax+28,y:cy},{a:180,col:'#16a34a',title:'BODY',lines:['Physical · Operational','Logistic · Practical'],anchor:'middle',x:cx,y:cy+rMax+52},{a:270,col:'#dc2626',title:'EMO',lines:['Creative · Emotional','Intuitive · Design'],anchor:'end',x:cx-rMax-28,y:cy}];
   for(const lbl of lblDefs){p.push(`<text x="${lbl.x}" y="${lbl.y}" text-anchor="${lbl.anchor}" dominant-baseline="middle" font-size="15" font-family="sans-serif" fill="${lbl.col}" font-weight="800">${lbl.title}</text>`);p.push(`<text x="${lbl.x}" y="${lbl.y+(lbl.a===0?20:lbl.a===180?-20:-10)}" text-anchor="${lbl.anchor}" dominant-baseline="middle" font-size="9.5" font-family="sans-serif" fill="${lbl.col}" opacity="0.85">${lbl.lines[0]}</text>`);p.push(`<text x="${lbl.x}" y="${lbl.y+(lbl.a===0?33:lbl.a===180?-33:6)}" text-anchor="${lbl.anchor}" dominant-baseline="middle" font-size="9.5" font-family="sans-serif" fill="${lbl.col}" opacity="0.85">${lbl.lines[1]}</text>`);}
   if(article){const aAngle=article.dominant_angle??0,aCx=article.complexity??5,aR=rMin+aCx*ringStep,aPos=boemToXY(aAngle,aR,cx,cy),aCol=angleToColor(aAngle);p.push(`<circle cx="${aPos.x.toFixed(1)}" cy="${aPos.y.toFixed(1)}" r="12" fill="${aCol}" opacity="0.25" stroke="${aCol}" stroke-width="1.5"/>`);const fPx=18,fW=fPx*100/120;p.push(`<g transform="translate(${(aPos.x-fW/2).toFixed(1)},${(aPos.y-fPx/2).toFixed(1)}) scale(${(fPx/120).toFixed(4)})"><g transform="rotate(${aAngle} 50 60)"><path d="${FISH_PATH}" fill="none" stroke="#555" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="${aCol}"/></g></g>`);}
   for(let i=0;i<classifications.length;i++){const item=classifications[i],r=rMin+(item.complexity??5)*ringStep,pos=boemToXY(item.angle,r,cx,cy),col=angleToColor(item.angle);p.push(`<circle class="circle-dot" cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="5.5" fill="${col}" stroke="#fff" stroke-width="1.5" opacity="0.88" data-index="${i}" style="cursor:pointer"><title>${item.category} · complexity ${item.complexity}</title></circle>`);}
@@ -399,13 +399,13 @@ function openCompass(item,activeIdx,all){
   for(let i=0;i<36;i++){const a1=(i*10-90-5)*Math.PI/180,a2=(i*10-90+5)*Math.PI/180,col=angleToColor(i*10);const x1=cx+rMax*Math.cos(a1),y1=cy+rMax*Math.sin(a1),x2=cx+rMax*Math.cos(a2),y2=cy+rMax*Math.sin(a2);p.push(`<path d="M${cx},${cy} L${x1.toFixed(2)},${y1.toFixed(2)} A${rMax},${rMax} 0 0,1 ${x2.toFixed(2)},${y2.toFixed(2)} Z" fill="${col}" opacity="0.07"/>`);}
   for(let c=1;c<=10;c++){const r=rMin+c*ringStep;p.push(`<circle cx="${cx}" cy="${cy}" r="${r.toFixed(1)}" fill="none" stroke="${c%5===0?'#bbb':'#ddd'}" stroke-width="${c%5===0?1.2:0.5}"/>`);}
   for(let i=0;i<36;i++){const rad=(i*10-90)*Math.PI/180;p.push(`<line x1="${cx}" y1="${cy}" x2="${(cx+rMax*Math.cos(rad)).toFixed(1)}" y2="${(cy+rMax*Math.sin(rad)).toFixed(1)}" stroke="${i%9===0?'#aaa':'#ddd'}" stroke-width="${i%9===0?1.2:0.5}"/>`);}
-  for(const[a,lbl,col]of[[0,'M','#3b82f6'],[90,'O','#d97706'],[180,'B','#16a34a'],[270,'E','#db2777']]){const rad=(a-90)*Math.PI/180,r=rMax+12;p.push(`<text x="${(cx+r*Math.cos(rad)).toFixed(1)}" y="${(cy+r*Math.sin(rad)).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-size="11" font-family="sans-serif" fill="${col}" font-weight="700">${lbl}</text>`);}
+  for(const[a,lbl,col]of[[0,'M','#3b82f6'],[90,'O','#d97706'],[180,'B','#16a34a'],[270,'E','#dc2626']]){const rad=(a-90)*Math.PI/180,r=rMax+12;p.push(`<text x="${(cx+r*Math.cos(rad)).toFixed(1)}" y="${(cy+r*Math.sin(rad)).toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-size="11" font-family="sans-serif" fill="${col}" font-weight="700">${lbl}</text>`);}
   for(let i=0;i<all.length;i++){if(i===activeIdx)continue;const r=rMin+(all[i].complexity??5)*ringStep,pos=boemToXY(all[i].angle,r,cx,cy);p.push(`<circle cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="3.5" fill="${angleToColor(all[i].angle)}" opacity="0.22"/>`);}
   const r=rMin+(item.complexity??5)*ringStep,pos=boemToXY(item.angle,r,cx,cy),col=angleToColor(item.angle);
   p.push(`<circle cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="14" fill="${col}" opacity="0.15"/>`);
   const fPx=19,fW=fPx*100/120;p.push(`<g transform="translate(${(pos.x-fW/2).toFixed(1)},${(pos.y-fPx/2).toFixed(1)}) scale(${(fPx/120).toFixed(4)})"><g transform="rotate(${item.angle} 50 60)"><path d="${FISH_PATH}" fill="none" stroke="#1c1c1c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#1c1c1c"/></g></g>`);
   p.push('</svg>');
-  const mix=angleToBoemMix(item.angle),sorted=[['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#db2777']].sort((a,b)=>mix[b[0]]-mix[a[0]]);
+  const mix=angleToBoemMix(item.angle),sorted=[['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#dc2626']].sort((a,b)=>mix[b[0]]-mix[a[0]]);
   const dominantLabel=mix[sorted[1][0]]>0.20?`${sorted[0][1]} + ${sorted[1][1]}`:sorted[0][1];
   document.getElementById('compass-svg').innerHTML=p.join('');
   document.getElementById('compass-text').textContent=item.text;
@@ -419,7 +419,7 @@ function closeCompass(){document.getElementById('compass-modal').style.display='
 const tooltip=document.getElementById('boem-tooltip');
 function showTooltip(e){
   const item=JSON.parse(e.currentTarget.dataset.boem),mix=angleToBoemMix(item.angle);
-  const sorted=[['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#db2777']].sort((a,b)=>mix[b[0]]-mix[a[0]]);
+  const sorted=[['M','Mind','#3b82f6'],['O','Org','#d97706'],['B','Body','#16a34a'],['E','Emo','#dc2626']].sort((a,b)=>mix[b[0]]-mix[a[0]]);
   const dominantLabel=mix[sorted[1][0]]>0.20?`${sorted[0][1]} + ${sorted[1][1]}`:sorted[0][1];
   tooltip.innerHTML=`<div class="tooltip-dominant" style="color:${sorted[0][2]}">${dominantLabel}</div><div class="tooltip-meta">${item.angle_pure??item.angle}° · ${item.category||''}</div>${barsHTML(mix)}<div class="tooltip-complexity"><span>Complexity ${item.complexity}/10</span><div class="complexity-dots">${dotsHTML(item.complexity)}</div></div>`;
   tooltip.style.display='block';positionTooltip(e);
