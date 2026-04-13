@@ -202,32 +202,36 @@ Task: split N paragraphs into 3–10 thematic groups AND classify each. More gro
 Return ONLY this JSON (no markdown):
 {"type":"informational","segments":[{"from":0,"to":2,"title":"Short title","angle":310,"category":"Psychology","complexity":5}]}`;
 
-// ── Keyword fallback ───────────────────────────────────────────────────
-const KW_MAP = [
-  { angle: 0,   words: ['math','algebra','formula','theorem','logic','calculus'] },
-  { angle: 10,  words: ['artificial intelligence','machine learning','neural','ai','llm','algorithm','gpt','claude'] },
-  { angle: 20,  words: ['programming','code','software','hardware','server','javascript','python','physics','electronics'] },
-  { angle: 80,  words: ['finance','money','investment','economy','market','business','revenue','company'] },
-  { angle: 100, words: ['politics','party','election','president','parliament','government','nato','war','geopolitics'] },
-  { angle: 110, words: ['administration','ministry','management','governance','institution'] },
-  { angle: 160, words: ['travel','tourism','country','nature','holiday'] },
-  { angle: 170, words: ['war','violence','conflict','aggression','weapon','military'] },
-  { angle: 180, words: ['sport','training','athlete','champion','match','run'] },
-  { angle: 190, words: ['food','restaurant','recipe','nutrition','meal','cooking'] },
-  { angle: 260, words: ['music','song','concert','rhythm','dance','singer','band','album'] },
-  { angle: 270, words: ['drama','emotion','feeling','film','series','actor','celebrity','award','eurovision'] },
-  { angle: 280, words: ['literature','book','novel','poetry','author','story'] },
-  { angle: 290, words: ['media','design','video','content','influencer','social media'] },
-  { angle: 300, words: ['news','report','journalism','event','journalist','history','celebrity','star'] },
-  { angle: 310, words: ['psychology','behavior','mind','trauma','therapy','stress','burnout','brain','neuroscience','hormone'] },
-  { angle: 320, words: ['philosophy','ethics','meaning','existence','values','morality'] },
-  { angle: 330, words: ['biology','genetics','evolution','cell','organism','bacteria','dna'] },
-  { angle: 340, words: ['medicine','health','disease','treatment','doctor','symptom','diagnosis','patient'] },
-  { angle: 350, words: ['chemistry','molecule','reaction','laboratory','enzyme','biotech'] },
-];
+// ── Keyword & concept library (loaded async from JSON) ─────────────────
+let KW_MAP = [];
+let CONCEPTS = [];
+
+(async () => {
+  try {
+    const [kw, co] = await Promise.all([
+      fetch('kw-map.json').then(r => r.json()),
+      fetch('concepts.json').then(r => r.json()),
+    ]);
+    KW_MAP   = kw;
+    CONCEPTS = co;
+  } catch(e) { console.warn('[fisheye] library load failed:', e.message); }
+})();
 
 function keywordAngle(text) {
   const t = text.toLowerCase();
+
+  // 1. Concept match (exact phrase in text) — highest priority
+  let bestConcept = null, bestCLen = 0;
+  for (const c of CONCEPTS) {
+    if (t.includes(c.concept.toLowerCase()) && c.concept.length > bestCLen) {
+      bestConcept = c; bestCLen = c.concept.length;
+    }
+  }
+  if (bestConcept) {
+    return { angle: bestConcept.angle, category: CATEGORIES[bestConcept.angle/10], complexity: bestConcept.complexity };
+  }
+
+  // 2. Keyword match
   let best = { angle: 300, score: 0 };
   for (const e of KW_MAP) {
     const score = e.words.filter(w => t.includes(w)).length;

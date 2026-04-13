@@ -1,0 +1,689 @@
+[
+  {
+    "angle": 0,
+    "words": [
+      "theorem",
+      "calculus",
+      "algebra",
+      "geometry",
+      "trigonometry",
+      "derivative",
+      "integral",
+      "equation",
+      "mathematical model",
+      "statistical analysis",
+      "optimization technique",
+      "differential equation",
+      "vector calculus",
+      "linear algebra",
+      "number theory",
+      "discrete math"
+    ]
+  },
+  {
+    "angle": 10,
+    "words": [
+      "machine learning",
+      "neural network",
+      "artificial intelligence",
+      "natural language processing",
+      "computer vision",
+      "data science",
+      "algorithm design",
+      "software engineering",
+      "human computer interaction",
+      "tech innovation",
+      "cyber security",
+      "data mining",
+      "robotics engineering",
+      "autonomous system",
+      "cognitive computing"
+    ]
+  },
+  {
+    "angle": 20,
+    "words": [
+      "quantum mechanics",
+      "particle physics",
+      "thermodynamics",
+      "electromagnetism",
+      "optics",
+      "relativity",
+      "nuclear physics",
+      "solid state physics",
+      "materials science",
+      "computational physics",
+      "theoretical physics",
+      "experimental physics",
+      "physics education",
+      "astrophysics",
+      "cosmology",
+      "plasma physics"
+    ]
+  },
+  {
+    "angle": 30,
+    "words": [
+      "mechanical engineering",
+      "civil engineering",
+      "electrical engineering",
+      "chemical engineering",
+      "aerospace engineering",
+      "biomedical engineering",
+      "computer engineering",
+      "environmental engineering",
+      "industrial engineering",
+      "materials engineering",
+      "systems engineering",
+      "engineering management",
+      "engineering design",
+      "engineering ethics",
+      "sustainable engineering"
+    ]
+  },
+  {
+    "angle": 40,
+    "words": [
+      "electronic circuit",
+      "microcontroller",
+      "embedded system",
+      "digital signal processing",
+      "analog electronics",
+      "power electronics",
+      "control system",
+      "communication system",
+      "electromagnetic compatibility",
+      "electronic design automation",
+      "robotics",
+      "automation",
+      "electronic manufacturing",
+      "printed circuit board",
+      "electronic component"
+    ]
+  },
+  {
+    "angle": 50,
+    "words": [
+      "mechanical system",
+      "kinematics",
+      "dynamics",
+      "thermodynamics",
+      "mechanical design",
+      "mechanical engineering",
+      "mechanics of materials",
+      "vibration analysis",
+      "mechanical measurement",
+      "control system",
+      "robotics",
+      "mechatronics",
+      "mechanical simulation",
+      "finite element method",
+      "computational mechanics"
+    ]
+  },
+  {
+    "angle": 60,
+    "words": [
+      "building design",
+      "urban planning",
+      "landscape architecture",
+      "interior design",
+      "architectural engineering",
+      "construction management",
+      "sustainable architecture",
+      "historic preservation",
+      "architectural history",
+      "building information modeling",
+      "architecture criticism",
+      "urban design",
+      "architectural theory",
+      "design methodology",
+      "building technology"
+    ]
+  },
+  {
+    "angle": 70,
+    "words": [
+      "statistical analysis",
+      "data visualization",
+      "machine learning",
+      "data mining",
+      "probability theory",
+      "inferential statistics",
+      "descriptive statistics",
+      "regression analysis",
+      "time series analysis",
+      "survey methodology",
+      "statistical modeling",
+      "data science",
+      "biostatistics",
+      "epidemiology",
+      "statistical computing"
+    ]
+  },
+  {
+    "angle": 80,
+    "words": [
+      "financial analysis",
+      "investment banking",
+      "portfolio management",
+      "risk management",
+      "financial modeling",
+      "accounting",
+      "auditing",
+      "taxation",
+      "financial planning",
+      "corporate finance",
+      "international finance",
+      "financial markets",
+      "financial institutions",
+      "financial regulation",
+      "financial technology"
+    ]
+  },
+  {
+    "angle": 90,
+    "words": [
+      "contract law",
+      "tort law",
+      "property law",
+      "constitutional law",
+      "criminal law",
+      "civil law",
+      "common law",
+      "statutory law",
+      "administrative law",
+      "international law",
+      "human rights law",
+      "environmental law",
+      "labor law",
+      "tax law",
+      "intellectual property law"
+    ]
+  },
+  {
+    "angle": 100,
+    "words": [
+      "political theory",
+      "political philosophy",
+      "comparative politics",
+      "international relations",
+      "public policy",
+      "political economy",
+      "political science",
+      "government",
+      "politics",
+      "election",
+      "campaign",
+      "political party",
+      "political ideology",
+      "public administration",
+      "political sociology"
+    ]
+  },
+  {
+    "angle": 110,
+    "words": [
+      "public administration",
+      "public policy",
+      "governance",
+      "leadership",
+      "management",
+      "administration",
+      "bureaucracy",
+      "public sector",
+      "government agency",
+      "nonprofit organization",
+      "ngo",
+      "policy analysis",
+      "program evaluation",
+      "public finance",
+      "human resources management"
+    ]
+  },
+  {
+    "angle": 120,
+    "words": [
+      "creative writing",
+      "fiction writing",
+      "nonfiction writing",
+      "poetry writing",
+      "playwriting",
+      "screenwriting",
+      "journalism",
+      "editing",
+      "publishing",
+      "literary criticism",
+      "writing style",
+      "writing technique",
+      "writing process",
+      "writing workshop",
+      "writing community"
+    ]
+  },
+  {
+    "angle": 130,
+    "words": [
+      "artistic craft",
+      "handicraft",
+      "woodworking",
+      "pottery",
+      "textile art",
+      "fiber art",
+      "jewelry making",
+      "metalworking",
+      "glassblowing",
+      "ceramics",
+      "sculpture",
+      "painting",
+      "drawing",
+      "printmaking",
+      "mixed media"
+    ]
+  },
+  {
+    "angle": 140,
+    "words": [
+      "building construction",
+      "civil engineering",
+      "architecture",
+      "project management",
+      "construction management",
+      "building codes",
+      "zoning regulations",
+      "sustainable building",
+      "green building",
+      "energy efficiency",
+      "building materials",
+      "construction techniques",
+      "site planning",
+      "landscape design"
+    ]
+  },
+  {
+    "angle": 150,
+    "words": [
+      "religious studies",
+      "theology",
+      "philosophy of religion",
+      "comparative religion",
+      "world religion",
+      "spirituality",
+      "faith",
+      "worship",
+      "ritual",
+      "mythology",
+      "scripture",
+      "doctrine",
+      "ethics",
+      "moral philosophy",
+      "religious education"
+    ]
+  },
+  {
+    "angle": 160,
+    "words": [
+      "travel guide",
+      "tourism",
+      "hospitality",
+      "leisure",
+      "recreation",
+      "adventure travel",
+      "cultural tourism",
+      "ecotourism",
+      "sustainable tourism",
+      "travel writing",
+      "travel photography",
+      "destination marketing",
+      "tour operator",
+      "travel agency",
+      "travel planning"
+    ]
+  },
+  {
+    "angle": 170,
+    "words": [
+      "aggressive behavior",
+      "violence",
+      "conflict",
+      "war",
+      "terrorism",
+      "crime",
+      "punishment",
+      "revenge",
+      "retaliation",
+      "self defense",
+      "martial arts",
+      "combat sports",
+      "military",
+      "law enforcement",
+      "security"
+    ]
+  },
+  {
+    "angle": 180,
+    "words": [
+      "physical violence",
+      "assault",
+      "battery",
+      "injury",
+      "trauma",
+      "abuse",
+      "neglect",
+      "exploitation",
+      "harassment",
+      "intimidation",
+      "coercion",
+      "manipulation",
+      "control",
+      "domination",
+      "power dynamics"
+    ]
+  },
+  {
+    "angle": 190,
+    "words": [
+      "food science",
+      "nutrition",
+      "culinary arts",
+      "cooking techniques",
+      "recipe development",
+      "food safety",
+      "food processing",
+      "food technology",
+      "agriculture",
+      "sustainable food",
+      "food systems",
+      "food culture",
+      "food history",
+      "gastronomy"
+    ]
+  },
+  {
+    "angle": 200,
+    "words": [
+      "family relationships",
+      "marriage",
+      "parenting",
+      "child development",
+      "sexuality",
+      "reproduction",
+      "gender studies",
+      "feminism",
+      "masculinity",
+      "sexual orientation",
+      "gender identity",
+      "family planning",
+      "reproductive health",
+      "sex education"
+    ]
+  },
+  {
+    "angle": 210,
+    "words": [
+      "home decor",
+      "interior design",
+      "furniture",
+      "architecture",
+      "landscape design",
+      "gardening",
+      "home improvement",
+      "renovation",
+      "construction",
+      "real estate",
+      "property management",
+      "home maintenance",
+      "household management",
+      "domesticity"
+    ]
+  },
+  {
+    "angle": 220,
+    "words": [
+      "cooking techniques",
+      "recipe development",
+      "food safety",
+      "meal planning",
+      "nutrition",
+      "dietetics",
+      "culinary arts",
+      "baking",
+      "pastry arts",
+      "food presentation",
+      "food styling",
+      "food photography",
+      "cooking classes",
+      "cooking demonstrations"
+    ]
+  },
+  {
+    "angle": 230,
+    "words": [
+      "healthcare",
+      "nursing",
+      "medicine",
+      "social work",
+      "counseling",
+      "therapy",
+      "support groups",
+      "caregiving",
+      "elder care",
+      "child care",
+      "disability support",
+      "mental health",
+      "substance abuse",
+      "rehabilitation"
+    ]
+  },
+  {
+    "angle": 240,
+    "words": [
+      "emotional intelligence",
+      "empathy",
+      "compassion",
+      "self awareness",
+      "self regulation",
+      "motivation",
+      "social skills",
+      "relationship building",
+      "conflict resolution",
+      "communication skills",
+      "active listening",
+      "nonverbal communication",
+      "emotional labor"
+    ]
+  },
+  {
+    "angle": 250,
+    "words": [
+      "fashion design",
+      "fashion merchandising",
+      "fashion marketing",
+      "fashion trends",
+      "fashion history",
+      "fashion culture",
+      "beauty",
+      "cosmetics",
+      "haute couture",
+      "ready to wear",
+      "sustainable fashion",
+      "fashion technology",
+      "fashion journalism"
+    ]
+  },
+  {
+    "angle": 260,
+    "words": [
+      "music theory",
+      "music history",
+      "music composition",
+      "music performance",
+      "music education",
+      "music therapy",
+      "sound design",
+      "audio engineering",
+      "music production",
+      "music technology",
+      "music industry",
+      "music business",
+      "music marketing"
+    ]
+  },
+  {
+    "angle": 270,
+    "words": [
+      "drama theory",
+      "playwriting",
+      "screenwriting",
+      "acting",
+      "directing",
+      "theater history",
+      "theater criticism",
+      "performance studies",
+      "dramaturgy",
+      "stage design",
+      "costume design",
+      "lighting design",
+      "sound design",
+      "theater management"
+    ]
+  },
+  {
+    "angle": 280,
+    "words": [
+      "literary theory",
+      "literary criticism",
+      "creative writing",
+      "literary history",
+      "book reviews",
+      "author studies",
+      "literary movements",
+      "genre studies",
+      "narrative theory",
+      "poetics",
+      "rhetoric",
+      "linguistics",
+      "literary translation"
+    ]
+  },
+  {
+    "angle": 290,
+    "words": [
+      "graphic design",
+      "visual design",
+      "user experience",
+      "user interface",
+      "web design",
+      "digital media",
+      "animation",
+      "video production",
+      "film studies",
+      "media studies",
+      "communication design",
+      "information architecture",
+      "interaction design"
+    ]
+  },
+  {
+    "angle": 300,
+    "words": [
+      "historical research",
+      "historical methodology",
+      "historiography",
+      "cultural history",
+      "social history",
+      "political history",
+      "economic history",
+      "environmental history",
+      "historical preservation",
+      "museum studies",
+      "archival studies",
+      "oral history"
+    ]
+  },
+  {
+    "angle": 310,
+    "words": [
+      "psychological theory",
+      "psychological research",
+      "clinical psychology",
+      "counseling psychology",
+      "social psychology",
+      "developmental psychology",
+      "cognitive psychology",
+      "neuropsychology",
+      "personality psychology",
+      "psychological assessment",
+      "psychological intervention"
+    ]
+  },
+  {
+    "angle": 320,
+    "words": [
+      "philosophical theory",
+      "philosophical methodology",
+      "ethics",
+      "metaphysics",
+      "epistemology",
+      "logic",
+      "philosophy of language",
+      "philosophy of mind",
+      "philosophy of science",
+      "philosophy of religion",
+      "philosophical critique",
+      "philosophical debate"
+    ]
+  },
+  {
+    "angle": 330,
+    "words": [
+      "biological systems",
+      "ecological systems",
+      "evolutionary biology",
+      "genetics",
+      "molecular biology",
+      "cell biology",
+      "physiology",
+      "anatomy",
+      "botany",
+      "zoology",
+      "microbiology",
+      "biochemistry",
+      "biophysics"
+    ]
+  },
+  {
+    "angle": 340,
+    "words": [
+      "medical research",
+      "medical practice",
+      "clinical medicine",
+      "surgical medicine",
+      "pediatric medicine",
+      "geriatric medicine",
+      "psychiatry",
+      "neurology",
+      "oncology",
+      "cardiology",
+      "gastroenterology",
+      "infectious disease"
+    ]
+  },
+  {
+    "angle": 350,
+    "words": [
+      "chemical reactions",
+      "chemical synthesis",
+      "chemical analysis",
+      "organic chemistry",
+      "inorganic chemistry",
+      "physical chemistry",
+      "biochemistry",
+      "chemical engineering",
+      "materials science",
+      "nanotechnology",
+      "chemical biology",
+      "chemical education"
+    ]
+  }
+]

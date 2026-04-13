@@ -1,0 +1,1982 @@
+[
+  {
+    "angle": 0,
+    "concept": "Euclidean geometry",
+    "complexity": 6
+  },
+  {
+    "angle": 0,
+    "concept": "Fourier transform",
+    "complexity": 8
+  },
+  {
+    "angle": 0,
+    "concept": "Differential equations",
+    "complexity": 7
+  },
+  {
+    "angle": 0,
+    "concept": "Number theory",
+    "complexity": 8
+  },
+  {
+    "angle": 0,
+    "concept": "Graph theory",
+    "complexity": 6
+  },
+  {
+    "angle": 0,
+    "concept": "Combinatorial optimization",
+    "complexity": 7
+  },
+  {
+    "angle": 0,
+    "concept": "Fractal analysis",
+    "complexity": 8
+  },
+  {
+    "angle": 0,
+    "concept": "Chaos theory",
+    "complexity": 8
+  },
+  {
+    "angle": 0,
+    "concept": "Mathematical modeling",
+    "complexity": 6
+  },
+  {
+    "angle": 0,
+    "concept": "Vector calculus",
+    "complexity": 7
+  },
+  {
+    "angle": 0,
+    "concept": "Topology",
+    "complexity": 8
+  },
+  {
+    "angle": 0,
+    "concept": "Algebraic geometry",
+    "complexity": 9
+  },
+  {
+    "angle": 0,
+    "concept": "Category theory",
+    "complexity": 9
+  },
+  {
+    "angle": 10,
+    "concept": "Deep learning",
+    "complexity": 8
+  },
+  {
+    "angle": 10,
+    "concept": "Natural language processing",
+    "complexity": 8
+  },
+  {
+    "angle": 10,
+    "concept": "Computer vision",
+    "complexity": 7
+  },
+  {
+    "angle": 10,
+    "concept": "Robotics engineering",
+    "complexity": 7
+  },
+  {
+    "angle": 10,
+    "concept": "Machine learning",
+    "complexity": 6
+  },
+  {
+    "angle": 10,
+    "concept": "Artificial intelligence",
+    "complexity": 7
+  },
+  {
+    "angle": 10,
+    "concept": "Neural networks",
+    "complexity": 8
+  },
+  {
+    "angle": 10,
+    "concept": "Human computer interaction",
+    "complexity": 6
+  },
+  {
+    "angle": 10,
+    "concept": "Data mining",
+    "complexity": 7
+  },
+  {
+    "angle": 10,
+    "concept": "Cybersecurity",
+    "complexity": 7
+  },
+  {
+    "angle": 20,
+    "concept": "Quantum mechanics",
+    "complexity": 9
+  },
+  {
+    "angle": 20,
+    "concept": "Thermodynamics",
+    "complexity": 6
+  },
+  {
+    "angle": 20,
+    "concept": "Electromagnetism",
+    "complexity": 7
+  },
+  {
+    "angle": 20,
+    "concept": "Optics",
+    "complexity": 6
+  },
+  {
+    "angle": 20,
+    "concept": "Nuclear physics",
+    "complexity": 8
+  },
+  {
+    "angle": 20,
+    "concept": "Particle physics",
+    "complexity": 9
+  },
+  {
+    "angle": 20,
+    "concept": "Condensed matter physics",
+    "complexity": 8
+  },
+  {
+    "angle": 20,
+    "concept": "Plasma physics",
+    "complexity": 8
+  },
+  {
+    "angle": 20,
+    "concept": "Biophysics",
+    "complexity": 7
+  },
+  {
+    "angle": 30,
+    "concept": "Aerospace engineering",
+    "complexity": 8
+  },
+  {
+    "angle": 30,
+    "concept": "Mechanical engineering",
+    "complexity": 6
+  },
+  {
+    "angle": 30,
+    "concept": "Civil engineering",
+    "complexity": 6
+  },
+  {
+    "angle": 30,
+    "concept": "Electrical engineering",
+    "complexity": 7
+  },
+  {
+    "angle": 30,
+    "concept": "Chemical engineering",
+    "complexity": 7
+  },
+  {
+    "angle": 30,
+    "concept": "Computer engineering",
+    "complexity": 7
+  },
+  {
+    "angle": 30,
+    "concept": "Biomedical engineering",
+    "complexity": 8
+  },
+  {
+    "angle": 30,
+    "concept": "Environmental engineering",
+    "complexity": 6
+  },
+  {
+    "angle": 30,
+    "concept": "Materials science",
+    "complexity": 7
+  },
+  {
+    "angle": 40,
+    "concept": "Microelectronics",
+    "complexity": 8
+  },
+  {
+    "angle": 40,
+    "concept": "Digital electronics",
+    "complexity": 6
+  },
+  {
+    "angle": 40,
+    "concept": "Analog electronics",
+    "complexity": 6
+  },
+  {
+    "angle": 40,
+    "concept": "Embedded systems",
+    "complexity": 7
+  },
+  {
+    "angle": 40,
+    "concept": "VLSI design",
+    "complexity": 8
+  },
+  {
+    "angle": 40,
+    "concept": "Robotics control",
+    "complexity": 7
+  },
+  {
+    "angle": 40,
+    "concept": "Sensors and actuators",
+    "complexity": 6
+  },
+  {
+    "angle": 40,
+    "concept": "Communication systems",
+    "complexity": 7
+  },
+  {
+    "angle": 40,
+    "concept": "Network architecture",
+    "complexity": 7
+  },
+  {
+    "angle": 50,
+    "concept": "Mechanical advantage",
+    "complexity": 5
+  },
+  {
+    "angle": 50,
+    "concept": "Thermodynamic cycles",
+    "complexity": 6
+  },
+  {
+    "angle": 50,
+    "concept": "Fluid mechanics",
+    "complexity": 6
+  },
+  {
+    "angle": 50,
+    "concept": "Vibration analysis",
+    "complexity": 7
+  },
+  {
+    "angle": 50,
+    "concept": "Mechanical design",
+    "complexity": 6
+  },
+  {
+    "angle": 50,
+    "concept": "Kinematics",
+    "complexity": 6
+  },
+  {
+    "angle": 50,
+    "concept": "Dynamics",
+    "complexity": 6
+  },
+  {
+    "angle": 50,
+    "concept": "Control systems",
+    "complexity": 7
+  },
+  {
+    "angle": 50,
+    "concept": "Mechatronics",
+    "complexity": 7
+  },
+  {
+    "angle": 60,
+    "concept": "Building design",
+    "complexity": 6
+  },
+  {
+    "angle": 60,
+    "concept": "Urban planning",
+    "complexity": 6
+  },
+  {
+    "angle": 60,
+    "concept": "Landscape architecture",
+    "complexity": 6
+  },
+  {
+    "angle": 60,
+    "concept": "Structural analysis",
+    "complexity": 7
+  },
+  {
+    "angle": 60,
+    "concept": "Construction management",
+    "complexity": 6
+  },
+  {
+    "angle": 60,
+    "concept": "Sustainable design",
+    "complexity": 6
+  },
+  {
+    "angle": 60,
+    "concept": "Interior design",
+    "complexity": 5
+  },
+  {
+    "angle": 60,
+    "concept": "Architectural engineering",
+    "complexity": 7
+  },
+  {
+    "angle": 70,
+    "concept": "Regression analysis",
+    "complexity": 6
+  },
+  {
+    "angle": 70,
+    "concept": "Hypothesis testing",
+    "complexity": 6
+  },
+  {
+    "angle": 70,
+    "concept": "Time series analysis",
+    "complexity": 7
+  },
+  {
+    "angle": 70,
+    "concept": "Survey methodology",
+    "complexity": 6
+  },
+  {
+    "angle": 70,
+    "concept": "Data visualization",
+    "complexity": 6
+  },
+  {
+    "angle": 70,
+    "concept": "Statistical inference",
+    "complexity": 7
+  },
+  {
+    "angle": 70,
+    "concept": "Machine learning algorithms",
+    "complexity": 8
+  },
+  {
+    "angle": 70,
+    "concept": "Bayesian statistics",
+    "complexity": 8
+  },
+  {
+    "angle": 80,
+    "concept": "Financial modeling",
+    "complexity": 7
+  },
+  {
+    "angle": 80,
+    "concept": "Investment analysis",
+    "complexity": 7
+  },
+  {
+    "angle": 80,
+    "concept": "Portfolio management",
+    "complexity": 7
+  },
+  {
+    "angle": 80,
+    "concept": "Risk management",
+    "complexity": 7
+  },
+  {
+    "angle": 80,
+    "concept": "Mortgage refinancing",
+    "complexity": 6
+  },
+  {
+    "angle": 80,
+    "concept": "Derivatives trading",
+    "complexity": 8
+  },
+  {
+    "angle": 80,
+    "concept": "Financial regulation",
+    "complexity": 7
+  },
+  {
+    "angle": 80,
+    "concept": "Tax planning",
+    "complexity": 6
+  },
+  {
+    "angle": 80,
+    "concept": "Wealth management",
+    "complexity": 7
+  },
+  {
+    "angle": 90,
+    "concept": "Contract law",
+    "complexity": 7
+  },
+  {
+    "angle": 90,
+    "concept": "Intellectual property",
+    "complexity": 8
+  },
+  {
+    "angle": 90,
+    "concept": "Criminal procedure",
+    "complexity": 6
+  },
+  {
+    "angle": 90,
+    "concept": "Tax litigation",
+    "complexity": 9
+  },
+  {
+    "angle": 90,
+    "concept": "Environmental law",
+    "complexity": 8
+  },
+  {
+    "angle": 90,
+    "concept": "Family law",
+    "complexity": 5
+  },
+  {
+    "angle": 90,
+    "concept": "Corporate law",
+    "complexity": 8
+  },
+  {
+    "angle": 90,
+    "concept": "Immigration law",
+    "complexity": 7
+  },
+  {
+    "angle": 90,
+    "concept": "Labor law",
+    "complexity": 6
+  },
+  {
+    "angle": 90,
+    "concept": "Constitutional law",
+    "complexity": 9
+  },
+  {
+    "angle": 90,
+    "concept": "International law",
+    "complexity": 9
+  },
+  {
+    "angle": 90,
+    "concept": "Property law",
+    "complexity": 6
+  },
+  {
+    "angle": 90,
+    "concept": "Tort law",
+    "complexity": 7
+  },
+  {
+    "angle": 90,
+    "concept": "Administrative law",
+    "complexity": 8
+  },
+  {
+    "angle": 100,
+    "concept": "Election campaign",
+    "complexity": 6
+  },
+  {
+    "angle": 100,
+    "concept": "Public policy analysis",
+    "complexity": 8
+  },
+  {
+    "angle": 100,
+    "concept": "Political philosophy",
+    "complexity": 9
+  },
+  {
+    "angle": 100,
+    "concept": "Voter behavior",
+    "complexity": 7
+  },
+  {
+    "angle": 100,
+    "concept": "Government accountability",
+    "complexity": 6
+  },
+  {
+    "angle": 100,
+    "concept": "International relations",
+    "complexity": 8
+  },
+  {
+    "angle": 100,
+    "concept": "Comparative politics",
+    "complexity": 8
+  },
+  {
+    "angle": 100,
+    "concept": "Legislative process",
+    "complexity": 7
+  },
+  {
+    "angle": 100,
+    "concept": "Executive power",
+    "complexity": 8
+  },
+  {
+    "angle": 100,
+    "concept": "Judicial review",
+    "complexity": 9
+  },
+  {
+    "angle": 100,
+    "concept": "Political economy",
+    "complexity": 8
+  },
+  {
+    "angle": 110,
+    "concept": "Public administration",
+    "complexity": 7
+  },
+  {
+    "angle": 110,
+    "concept": "Bureaucratic theory",
+    "complexity": 8
+  },
+  {
+    "angle": 110,
+    "concept": "Organizational behavior",
+    "complexity": 7
+  },
+  {
+    "angle": 110,
+    "concept": "Leadership development",
+    "complexity": 6
+  },
+  {
+    "angle": 110,
+    "concept": "Strategic management",
+    "complexity": 8
+  },
+  {
+    "angle": 110,
+    "concept": "Policy implementation",
+    "complexity": 7
+  },
+  {
+    "angle": 110,
+    "concept": "Regulatory compliance",
+    "complexity": 6
+  },
+  {
+    "angle": 110,
+    "concept": "Government budgeting",
+    "complexity": 7
+  },
+  {
+    "angle": 110,
+    "concept": "Public finance",
+    "complexity": 8
+  },
+  {
+    "angle": 110,
+    "concept": "Human resource management",
+    "complexity": 7
+  },
+  {
+    "angle": 110,
+    "concept": "Risk management",
+    "complexity": 8
+  },
+  {
+    "angle": 120,
+    "concept": "Creative writing",
+    "complexity": 5
+  },
+  {
+    "angle": 120,
+    "concept": "Technical writing",
+    "complexity": 6
+  },
+  {
+    "angle": 120,
+    "concept": "Journalism ethics",
+    "complexity": 7
+  },
+  {
+    "angle": 120,
+    "concept": "Publishing industry",
+    "complexity": 6
+  },
+  {
+    "angle": 120,
+    "concept": "Literary criticism",
+    "complexity": 8
+  },
+  {
+    "angle": 120,
+    "concept": "Poetry analysis",
+    "complexity": 7
+  },
+  {
+    "angle": 120,
+    "concept": "Fiction writing",
+    "complexity": 6
+  },
+  {
+    "angle": 120,
+    "concept": "Nonfiction writing",
+    "complexity": 6
+  },
+  {
+    "angle": 120,
+    "concept": "Screenwriting",
+    "complexity": 7
+  },
+  {
+    "angle": 120,
+    "concept": "Playwriting",
+    "complexity": 7
+  },
+  {
+    "angle": 120,
+    "concept": "Editing techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 120,
+    "concept": "Proofreading skills",
+    "complexity": 5
+  },
+  {
+    "angle": 130,
+    "concept": "Woodworking techniques",
+    "complexity": 5
+  },
+  {
+    "angle": 130,
+    "concept": "Ceramics art",
+    "complexity": 6
+  },
+  {
+    "angle": 130,
+    "concept": "Textile design",
+    "complexity": 6
+  },
+  {
+    "angle": 130,
+    "concept": "Jewelry making",
+    "complexity": 5
+  },
+  {
+    "angle": 130,
+    "concept": "Glassblowing",
+    "complexity": 6
+  },
+  {
+    "angle": 130,
+    "concept": "Metalworking",
+    "complexity": 6
+  },
+  {
+    "angle": 130,
+    "concept": "Sculpture techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 130,
+    "concept": "Printmaking art",
+    "complexity": 6
+  },
+  {
+    "angle": 130,
+    "concept": "Paper crafting",
+    "complexity": 5
+  },
+  {
+    "angle": 130,
+    "concept": "Upcycling design",
+    "complexity": 6
+  },
+  {
+    "angle": 130,
+    "concept": "Mixed media art",
+    "complexity": 6
+  },
+  {
+    "angle": 140,
+    "concept": "Building codes",
+    "complexity": 7
+  },
+  {
+    "angle": 140,
+    "concept": "Architectural design",
+    "complexity": 8
+  },
+  {
+    "angle": 140,
+    "concept": "Construction management",
+    "complexity": 8
+  },
+  {
+    "angle": 140,
+    "concept": "Civil engineering",
+    "complexity": 9
+  },
+  {
+    "angle": 140,
+    "concept": "Structural analysis",
+    "complexity": 9
+  },
+  {
+    "angle": 140,
+    "concept": "Soil mechanics",
+    "complexity": 8
+  },
+  {
+    "angle": 140,
+    "concept": "Building inspection",
+    "complexity": 7
+  },
+  {
+    "angle": 140,
+    "concept": "Contract administration",
+    "complexity": 8
+  },
+  {
+    "angle": 140,
+    "concept": "Project scheduling",
+    "complexity": 7
+  },
+  {
+    "angle": 140,
+    "concept": "Cost estimation",
+    "complexity": 7
+  },
+  {
+    "angle": 140,
+    "concept": "Quality control",
+    "complexity": 7
+  },
+  {
+    "angle": 150,
+    "concept": "Theology studies",
+    "complexity": 8
+  },
+  {
+    "angle": 150,
+    "concept": "Biblical interpretation",
+    "complexity": 8
+  },
+  {
+    "angle": 150,
+    "concept": "Comparative religion",
+    "complexity": 8
+  },
+  {
+    "angle": 150,
+    "concept": "Spiritual leadership",
+    "complexity": 7
+  },
+  {
+    "angle": 150,
+    "concept": "Worship planning",
+    "complexity": 6
+  },
+  {
+    "angle": 150,
+    "concept": "Pastoral care",
+    "complexity": 7
+  },
+  {
+    "angle": 150,
+    "concept": "Church history",
+    "complexity": 8
+  },
+  {
+    "angle": 150,
+    "concept": "Missionary work",
+    "complexity": 7
+  },
+  {
+    "angle": 150,
+    "concept": "Religious education",
+    "complexity": 7
+  },
+  {
+    "angle": 150,
+    "concept": "Interfaith dialogue",
+    "complexity": 8
+  },
+  {
+    "angle": 150,
+    "concept": "Moral ethics",
+    "complexity": 8
+  },
+  {
+    "angle": 160,
+    "concept": "Travel photography",
+    "complexity": 6
+  },
+  {
+    "angle": 160,
+    "concept": "Cultural tourism",
+    "complexity": 6
+  },
+  {
+    "angle": 160,
+    "concept": "Adventure travel",
+    "complexity": 5
+  },
+  {
+    "angle": 160,
+    "concept": "Sustainable tourism",
+    "complexity": 7
+  },
+  {
+    "angle": 160,
+    "concept": "Travel writing",
+    "complexity": 6
+  },
+  {
+    "angle": 160,
+    "concept": "Destination marketing",
+    "complexity": 7
+  },
+  {
+    "angle": 160,
+    "concept": "Tourism management",
+    "complexity": 7
+  },
+  {
+    "angle": 160,
+    "concept": "Hotel management",
+    "complexity": 6
+  },
+  {
+    "angle": 160,
+    "concept": "Event planning",
+    "complexity": 6
+  },
+  {
+    "angle": 160,
+    "concept": "Cruise industry",
+    "complexity": 6
+  },
+  {
+    "angle": 160,
+    "concept": "Airline management",
+    "complexity": 7
+  },
+  {
+    "angle": 170,
+    "concept": "Conflict resolution",
+    "complexity": 7
+  },
+  {
+    "angle": 170,
+    "concept": "Crisis management",
+    "complexity": 8
+  },
+  {
+    "angle": 170,
+    "concept": "Terrorism studies",
+    "complexity": 9
+  },
+  {
+    "angle": 170,
+    "concept": "Cyber warfare",
+    "complexity": 9
+  },
+  {
+    "angle": 170,
+    "concept": "Military strategy",
+    "complexity": 9
+  },
+  {
+    "angle": 170,
+    "concept": "International security",
+    "complexity": 9
+  },
+  {
+    "angle": 170,
+    "concept": "Diplomacy techniques",
+    "complexity": 8
+  },
+  {
+    "angle": 170,
+    "concept": "Negotiation tactics",
+    "complexity": 8
+  },
+  {
+    "angle": 170,
+    "concept": "Warfare tactics",
+    "complexity": 9
+  },
+  {
+    "angle": 170,
+    "concept": "Counterterrorism",
+    "complexity": 9
+  },
+  {
+    "angle": 170,
+    "concept": "Disaster response",
+    "complexity": 8
+  },
+  {
+    "angle": 180,
+    "concept": "Martial Arts Training",
+    "complexity": 6
+  },
+  {
+    "angle": 180,
+    "concept": "Power Lifting Techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 180,
+    "concept": "Sports Injury Rehabilitation",
+    "complexity": 8
+  },
+  {
+    "angle": 180,
+    "concept": "Gymnastics Equipment Safety",
+    "complexity": 5
+  },
+  {
+    "angle": 180,
+    "concept": "Weightlifting Competition Rules",
+    "complexity": 6
+  },
+  {
+    "angle": 180,
+    "concept": "Physical Therapy Modalities",
+    "complexity": 7
+  },
+  {
+    "angle": 180,
+    "concept": "Exercise Physiology Research",
+    "complexity": 9
+  },
+  {
+    "angle": 180,
+    "concept": "Strength Training Programs",
+    "complexity": 6
+  },
+  {
+    "angle": 180,
+    "concept": "Flexibility Exercise Routines",
+    "complexity": 5
+  },
+  {
+    "angle": 180,
+    "concept": "Cardiovascular Fitness Testing",
+    "complexity": 7
+  },
+  {
+    "angle": 180,
+    "concept": "Muscle Biomechanics Analysis",
+    "complexity": 8
+  },
+  {
+    "angle": 180,
+    "concept": "Athletic Performance Enhancement",
+    "complexity": 8
+  },
+  {
+    "angle": 180,
+    "concept": "Injury Prevention Strategies",
+    "complexity": 6
+  },
+  {
+    "angle": 180,
+    "concept": "Fitness Technology Innovations",
+    "complexity": 7
+  },
+  {
+    "angle": 190,
+    "concept": "Nutritional Biochemistry",
+    "complexity": 9
+  },
+  {
+    "angle": 190,
+    "concept": "Food Allergy Diagnosis",
+    "complexity": 7
+  },
+  {
+    "angle": 190,
+    "concept": "Culinary Arts Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 190,
+    "concept": "Dietary Supplement Regulation",
+    "complexity": 7
+  },
+  {
+    "angle": 190,
+    "concept": "Gastronomy Culture Studies",
+    "complexity": 8
+  },
+  {
+    "angle": 190,
+    "concept": "Food Safety Microbiology",
+    "complexity": 8
+  },
+  {
+    "angle": 190,
+    "concept": "Meal Planning Strategies",
+    "complexity": 5
+  },
+  {
+    "angle": 190,
+    "concept": "Food Science Research Methods",
+    "complexity": 9
+  },
+  {
+    "angle": 190,
+    "concept": "Restaurant Management Operations",
+    "complexity": 6
+  },
+  {
+    "angle": 190,
+    "concept": "Food Processing Technology",
+    "complexity": 7
+  },
+  {
+    "angle": 190,
+    "concept": "Nutrition Education Programs",
+    "complexity": 6
+  },
+  {
+    "angle": 190,
+    "concept": "Culinary Nutrition Science",
+    "complexity": 8
+  },
+  {
+    "angle": 200,
+    "concept": "Human Reproductive Biology",
+    "complexity": 8
+  },
+  {
+    "angle": 200,
+    "concept": "Family Therapy Techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 200,
+    "concept": "Parenting Style Research",
+    "complexity": 6
+  },
+  {
+    "angle": 200,
+    "concept": "Sexual Health Education",
+    "complexity": 6
+  },
+  {
+    "angle": 200,
+    "concept": "Relationship Counseling Methods",
+    "complexity": 7
+  },
+  {
+    "angle": 200,
+    "concept": "Adoption Law Procedures",
+    "complexity": 7
+  },
+  {
+    "angle": 200,
+    "concept": "Child Development Theories",
+    "complexity": 8
+  },
+  {
+    "angle": 200,
+    "concept": "Family Planning Strategies",
+    "complexity": 6
+  },
+  {
+    "angle": 200,
+    "concept": "Marriage Counseling Techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 200,
+    "concept": "Human Sexuality Studies",
+    "complexity": 8
+  },
+  {
+    "angle": 200,
+    "concept": "Teenage Pregnancy Prevention",
+    "complexity": 6
+  },
+  {
+    "angle": 210,
+    "concept": "Residential Architecture Design",
+    "complexity": 8
+  },
+  {
+    "angle": 210,
+    "concept": "Home Renovation Planning",
+    "complexity": 6
+  },
+  {
+    "angle": 210,
+    "concept": "Interior Design Principles",
+    "complexity": 6
+  },
+  {
+    "angle": 210,
+    "concept": "Real Estate Investment Strategies",
+    "complexity": 7
+  },
+  {
+    "angle": 210,
+    "concept": "Sustainable Building Materials",
+    "complexity": 7
+  },
+  {
+    "angle": 210,
+    "concept": "Home Security Systems Installation",
+    "complexity": 5
+  },
+  {
+    "angle": 210,
+    "concept": "Furniture Design Manufacturing",
+    "complexity": 6
+  },
+  {
+    "angle": 210,
+    "concept": "Home Maintenance Scheduling",
+    "complexity": 5
+  },
+  {
+    "angle": 210,
+    "concept": "Landscape Design Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 210,
+    "concept": "Property Management Services",
+    "complexity": 6
+  },
+  {
+    "angle": 210,
+    "concept": "Home Staging Strategies",
+    "complexity": 6
+  },
+  {
+    "angle": 220,
+    "concept": "Culinary Arts Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 220,
+    "concept": "Food Preparation Methods",
+    "complexity": 5
+  },
+  {
+    "angle": 220,
+    "concept": "Kitchen Appliance Repair",
+    "complexity": 5
+  },
+  {
+    "angle": 220,
+    "concept": "Recipe Development Strategies",
+    "complexity": 6
+  },
+  {
+    "angle": 220,
+    "concept": "Food Presentation Styles",
+    "complexity": 6
+  },
+  {
+    "angle": 220,
+    "concept": "Baking Techniques Fundamentals",
+    "complexity": 5
+  },
+  {
+    "angle": 220,
+    "concept": "Cooking Competition Rules",
+    "complexity": 6
+  },
+  {
+    "angle": 220,
+    "concept": "Kitchen Safety Protocols",
+    "complexity": 5
+  },
+  {
+    "angle": 220,
+    "concept": "Meal Preparation Services",
+    "complexity": 6
+  },
+  {
+    "angle": 220,
+    "concept": "Food Styling Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 220,
+    "concept": "Catering Business Operations",
+    "complexity": 7
+  },
+  {
+    "angle": 230,
+    "concept": "Nursing Care Plans Development",
+    "complexity": 7
+  },
+  {
+    "angle": 230,
+    "concept": "Elderly Care Services",
+    "complexity": 6
+  },
+  {
+    "angle": 230,
+    "concept": "Childcare Education Programs",
+    "complexity": 6
+  },
+  {
+    "angle": 230,
+    "concept": "Disability Support Services",
+    "complexity": 7
+  },
+  {
+    "angle": 230,
+    "concept": "Palliative Care Management",
+    "complexity": 8
+  },
+  {
+    "angle": 230,
+    "concept": "Mental Health Counseling",
+    "complexity": 7
+  },
+  {
+    "angle": 230,
+    "concept": "Home Healthcare Services",
+    "complexity": 6
+  },
+  {
+    "angle": 230,
+    "concept": "Rehabilitation Therapy Techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 230,
+    "concept": "Social Work Practice Models",
+    "complexity": 8
+  },
+  {
+    "angle": 230,
+    "concept": "Caregiver Support Programs",
+    "complexity": 6
+  },
+  {
+    "angle": 230,
+    "concept": "Health Education Strategies",
+    "complexity": 7
+  },
+  {
+    "angle": 240,
+    "concept": "Emotional Intelligence Development",
+    "complexity": 7
+  },
+  {
+    "angle": 240,
+    "concept": "Conflict Resolution Techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 240,
+    "concept": "Active Listening Skills",
+    "complexity": 5
+  },
+  {
+    "angle": 240,
+    "concept": "Empathy Building Exercises",
+    "complexity": 6
+  },
+  {
+    "angle": 240,
+    "concept": "Interpersonal Communication Styles",
+    "complexity": 7
+  },
+  {
+    "angle": 240,
+    "concept": "Social Skills Training Programs",
+    "complexity": 6
+  },
+  {
+    "angle": 240,
+    "concept": "Nonverbal Communication Analysis",
+    "complexity": 8
+  },
+  {
+    "angle": 240,
+    "concept": "Group Dynamics Theory",
+    "complexity": 8
+  },
+  {
+    "angle": 240,
+    "concept": "Counseling Psychology Theories",
+    "complexity": 9
+  },
+  {
+    "angle": 240,
+    "concept": "Mindfulness Meditation Practices",
+    "complexity": 6
+  },
+  {
+    "angle": 240,
+    "concept": "Self Awareness Development",
+    "complexity": 7
+  },
+  {
+    "angle": 250,
+    "concept": "Fashion Design Principles",
+    "complexity": 6
+  },
+  {
+    "angle": 250,
+    "concept": "Textile Science Fundamentals",
+    "complexity": 7
+  },
+  {
+    "angle": 250,
+    "concept": "Clothing Construction Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 250,
+    "concept": "Fashion Merchandising Strategies",
+    "complexity": 7
+  },
+  {
+    "angle": 250,
+    "concept": "Beauty Standards Cultural Analysis",
+    "complexity": 8
+  },
+  {
+    "angle": 250,
+    "concept": "Haute Couture History",
+    "complexity": 7
+  },
+  {
+    "angle": 250,
+    "concept": "Fashion Photography Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 250,
+    "concept": "Runway Modeling Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 250,
+    "concept": "Fashion Trend Forecasting",
+    "complexity": 7
+  },
+  {
+    "angle": 250,
+    "concept": "Sustainable Fashion Practices",
+    "complexity": 7
+  },
+  {
+    "angle": 250,
+    "concept": "Costume Design for Theater",
+    "complexity": 7
+  },
+  {
+    "angle": 260,
+    "concept": "Music Theory Fundamentals",
+    "complexity": 6
+  },
+  {
+    "angle": 260,
+    "concept": "Instrumental Music Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 260,
+    "concept": "Vocal Performance Coaching",
+    "complexity": 7
+  },
+  {
+    "angle": 260,
+    "concept": "Music Production Software",
+    "complexity": 6
+  },
+  {
+    "angle": 260,
+    "concept": "Sound Engineering Principles",
+    "complexity": 7
+  },
+  {
+    "angle": 260,
+    "concept": "Music Therapy Practices",
+    "complexity": 7
+  },
+  {
+    "angle": 260,
+    "concept": "Jazz Improvisation Techniques",
+    "complexity": 8
+  },
+  {
+    "angle": 260,
+    "concept": "Classical Music Composition",
+    "complexity": 8
+  },
+  {
+    "angle": 260,
+    "concept": "Music Education Curriculum",
+    "complexity": 7
+  },
+  {
+    "angle": 260,
+    "concept": "Audio Recording Techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 260,
+    "concept": "Live Sound Reinforcement",
+    "complexity": 7
+  },
+  {
+    "angle": 270,
+    "concept": "Shakespearean sonnets",
+    "complexity": 5
+  },
+  {
+    "angle": 270,
+    "concept": "Greek tragedy",
+    "complexity": 6
+  },
+  {
+    "angle": 270,
+    "concept": "Film noir genre",
+    "complexity": 7
+  },
+  {
+    "angle": 270,
+    "concept": "Postmodern drama",
+    "complexity": 8
+  },
+  {
+    "angle": 270,
+    "concept": "Theatrical improvisation",
+    "complexity": 4
+  },
+  {
+    "angle": 270,
+    "concept": "Dramatic monologues",
+    "complexity": 6
+  },
+  {
+    "angle": 270,
+    "concept": "Absurdist theatre",
+    "complexity": 7
+  },
+  {
+    "angle": 270,
+    "concept": "Restoration comedy",
+    "complexity": 6
+  },
+  {
+    "angle": 270,
+    "concept": "Tragic hero archetype",
+    "complexity": 7
+  },
+  {
+    "angle": 270,
+    "concept": "Commedia dell'arte",
+    "complexity": 6
+  },
+  {
+    "angle": 270,
+    "concept": "Dramatic irony",
+    "complexity": 5
+  },
+  {
+    "angle": 270,
+    "concept": "Theatre of cruelty",
+    "complexity": 8
+  },
+  {
+    "angle": 270,
+    "concept": "Melodrama genre",
+    "complexity": 5
+  },
+  {
+    "angle": 270,
+    "concept": "Farce comedy",
+    "complexity": 4
+  },
+  {
+    "angle": 280,
+    "concept": "Victorian poetry",
+    "complexity": 6
+  },
+  {
+    "angle": 280,
+    "concept": "Modernist literature",
+    "complexity": 7
+  },
+  {
+    "angle": 280,
+    "concept": "Postcolonial fiction",
+    "complexity": 8
+  },
+  {
+    "angle": 280,
+    "concept": "Science fiction genre",
+    "complexity": 5
+  },
+  {
+    "angle": 280,
+    "concept": "Gothic novel",
+    "complexity": 6
+  },
+  {
+    "angle": 280,
+    "concept": "Romantic poetry",
+    "complexity": 6
+  },
+  {
+    "angle": 280,
+    "concept": "Dystopian literature",
+    "complexity": 6
+  },
+  {
+    "angle": 280,
+    "concept": "Magical realism",
+    "complexity": 7
+  },
+  {
+    "angle": 280,
+    "concept": "Stream of consciousness",
+    "complexity": 8
+  },
+  {
+    "angle": 280,
+    "concept": "Historical fiction",
+    "complexity": 6
+  },
+  {
+    "angle": 280,
+    "concept": "Utopian literature",
+    "complexity": 7
+  },
+  {
+    "angle": 280,
+    "concept": "Cyberpunk genre",
+    "complexity": 6
+  },
+  {
+    "angle": 280,
+    "concept": "Fantasy worldbuilding",
+    "complexity": 7
+  },
+  {
+    "angle": 290,
+    "concept": "Graphic design principles",
+    "complexity": 5
+  },
+  {
+    "angle": 290,
+    "concept": "User experience design",
+    "complexity": 7
+  },
+  {
+    "angle": 290,
+    "concept": "Digital photography",
+    "complexity": 4
+  },
+  {
+    "angle": 290,
+    "concept": "Motion graphics",
+    "complexity": 6
+  },
+  {
+    "angle": 290,
+    "concept": "Typography design",
+    "complexity": 5
+  },
+  {
+    "angle": 290,
+    "concept": "Interior design principles",
+    "complexity": 5
+  },
+  {
+    "angle": 290,
+    "concept": "Fashion design process",
+    "complexity": 6
+  },
+  {
+    "angle": 290,
+    "concept": "Web development frameworks",
+    "complexity": 8
+  },
+  {
+    "angle": 290,
+    "concept": "Visual storytelling",
+    "complexity": 6
+  },
+  {
+    "angle": 290,
+    "concept": "Branding strategy",
+    "complexity": 7
+  },
+  {
+    "angle": 290,
+    "concept": "Game design mechanics",
+    "complexity": 7
+  },
+  {
+    "angle": 290,
+    "concept": "Information architecture",
+    "complexity": 8
+  },
+  {
+    "angle": 300,
+    "concept": "Ancient Egyptian history",
+    "complexity": 6
+  },
+  {
+    "angle": 300,
+    "concept": "World War I causes",
+    "complexity": 7
+  },
+  {
+    "angle": 300,
+    "concept": "Medieval European history",
+    "complexity": 6
+  },
+  {
+    "angle": 300,
+    "concept": "American Civil War",
+    "complexity": 6
+  },
+  {
+    "angle": 300,
+    "concept": "Industrial Revolution impact",
+    "complexity": 7
+  },
+  {
+    "angle": 300,
+    "concept": "Cold War politics",
+    "complexity": 7
+  },
+  {
+    "angle": 300,
+    "concept": "Ancient Greek philosophy",
+    "complexity": 7
+  },
+  {
+    "angle": 300,
+    "concept": "Renaissance art history",
+    "complexity": 6
+  },
+  {
+    "angle": 300,
+    "concept": "Chinese dynasties",
+    "complexity": 6
+  },
+  {
+    "angle": 300,
+    "concept": "French Revolution causes",
+    "complexity": 7
+  },
+  {
+    "angle": 300,
+    "concept": "Historical preservation methods",
+    "complexity": 5
+  },
+  {
+    "angle": 300,
+    "concept": "Archaeological excavation techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 310,
+    "concept": "Cognitive behavioral therapy",
+    "complexity": 7
+  },
+  {
+    "angle": 310,
+    "concept": "Social learning theory",
+    "complexity": 6
+  },
+  {
+    "angle": 310,
+    "concept": "Human motivation theories",
+    "complexity": 7
+  },
+  {
+    "angle": 310,
+    "concept": "Emotional intelligence",
+    "complexity": 5
+  },
+  {
+    "angle": 310,
+    "concept": "Personality disorders",
+    "complexity": 7
+  },
+  {
+    "angle": 310,
+    "concept": "Child development stages",
+    "complexity": 6
+  },
+  {
+    "angle": 310,
+    "concept": "Neuroplasticity research",
+    "complexity": 8
+  },
+  {
+    "angle": 310,
+    "concept": "Psychological trauma",
+    "complexity": 7
+  },
+  {
+    "angle": 310,
+    "concept": "Attachment theory",
+    "complexity": 6
+  },
+  {
+    "angle": 310,
+    "concept": "Group dynamics",
+    "complexity": 6
+  },
+  {
+    "angle": 310,
+    "concept": "Abnormal psychology",
+    "complexity": 7
+  },
+  {
+    "angle": 310,
+    "concept": "Positive psychology",
+    "complexity": 6
+  },
+  {
+    "angle": 320,
+    "concept": "Existentialism philosophy",
+    "complexity": 7
+  },
+  {
+    "angle": 320,
+    "concept": "Ethics in philosophy",
+    "complexity": 7
+  },
+  {
+    "angle": 320,
+    "concept": "Logic and reasoning",
+    "complexity": 6
+  },
+  {
+    "angle": 320,
+    "concept": "Metaphysics and ontology",
+    "complexity": 8
+  },
+  {
+    "angle": 320,
+    "concept": "Epistemology theory",
+    "complexity": 8
+  },
+  {
+    "angle": 320,
+    "concept": "Philosophy of mind",
+    "complexity": 8
+  },
+  {
+    "angle": 320,
+    "concept": "Philosophy of science",
+    "complexity": 8
+  },
+  {
+    "angle": 320,
+    "concept": "Aesthetics philosophy",
+    "complexity": 7
+  },
+  {
+    "angle": 320,
+    "concept": "Political philosophy",
+    "complexity": 7
+  },
+  {
+    "angle": 320,
+    "concept": "Phenomenology philosophy",
+    "complexity": 8
+  },
+  {
+    "angle": 320,
+    "concept": "Hermeneutics philosophy",
+    "complexity": 8
+  },
+  {
+    "angle": 330,
+    "concept": "Cellular respiration process",
+    "complexity": 6
+  },
+  {
+    "angle": 330,
+    "concept": "Molecular biology techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 330,
+    "concept": "Genetic engineering principles",
+    "complexity": 7
+  },
+  {
+    "angle": 330,
+    "concept": "Ecological conservation",
+    "complexity": 6
+  },
+  {
+    "angle": 330,
+    "concept": "Evolutionary biology",
+    "complexity": 7
+  },
+  {
+    "angle": 330,
+    "concept": "Neurobiology research",
+    "complexity": 8
+  },
+  {
+    "angle": 330,
+    "concept": "Microbiology techniques",
+    "complexity": 6
+  },
+  {
+    "angle": 330,
+    "concept": "Botany and plant physiology",
+    "complexity": 6
+  },
+  {
+    "angle": 330,
+    "concept": "Zoology and animal behavior",
+    "complexity": 6
+  },
+  {
+    "angle": 330,
+    "concept": "Biochemistry principles",
+    "complexity": 7
+  },
+  {
+    "angle": 330,
+    "concept": "Biophysics research",
+    "complexity": 8
+  },
+  {
+    "angle": 340,
+    "concept": "Cardiovascular surgery",
+    "complexity": 8
+  },
+  {
+    "angle": 340,
+    "concept": "Pediatric medicine",
+    "complexity": 7
+  },
+  {
+    "angle": 340,
+    "concept": "Oncology treatment options",
+    "complexity": 8
+  },
+  {
+    "angle": 340,
+    "concept": "Neurosurgery techniques",
+    "complexity": 9
+  },
+  {
+    "angle": 340,
+    "concept": "Infectious disease management",
+    "complexity": 7
+  },
+  {
+    "angle": 340,
+    "concept": "Pharmacology principles",
+    "complexity": 7
+  },
+  {
+    "angle": 340,
+    "concept": "Radiology imaging techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 340,
+    "concept": "Dermatology treatments",
+    "complexity": 6
+  },
+  {
+    "angle": 340,
+    "concept": "Orthopedic surgery",
+    "complexity": 8
+  },
+  {
+    "angle": 340,
+    "concept": "Gastroenterology disorders",
+    "complexity": 7
+  },
+  {
+    "angle": 340,
+    "concept": "Nephrology and kidney disease",
+    "complexity": 8
+  },
+  {
+    "angle": 350,
+    "concept": "Organic chemistry reactions",
+    "complexity": 7
+  },
+  {
+    "angle": 350,
+    "concept": "Inorganic chemistry principles",
+    "complexity": 7
+  },
+  {
+    "angle": 350,
+    "concept": "Biochemical pathways",
+    "complexity": 8
+  },
+  {
+    "angle": 350,
+    "concept": "Physical chemistry principles",
+    "complexity": 8
+  },
+  {
+    "angle": 350,
+    "concept": "Analytical chemistry techniques",
+    "complexity": 7
+  },
+  {
+    "angle": 350,
+    "concept": "Materials science research",
+    "complexity": 8
+  },
+  {
+    "angle": 350,
+    "concept": "Nuclear chemistry principles",
+    "complexity": 8
+  },
+  {
+    "angle": 350,
+    "concept": "Environmental chemistry",
+    "complexity": 7
+  },
+  {
+    "angle": 350,
+    "concept": "Computational chemistry methods",
+    "complexity": 8
+  },
+  {
+    "angle": 350,
+    "concept": "Medicinal chemistry principles",
+    "complexity": 8
+  }
+]
