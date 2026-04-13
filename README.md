@@ -13,6 +13,95 @@ Content-Type: application/json
 
 Returns `{ article, segments }` — angle (0–350°), category, complexity, BOEM profile. No API key needed.
 
+---
+
+## API Reference
+
+**Endpoint:** `POST https://fisheye-360.vercel.app/api/classify`  
+**Auth:** None — public, no API key required  
+**Rate limit:** ~60 req/min (shared Groq free tier — be reasonable)
+
+### Request
+
+```json
+{ "text": "Paste any text here — article, paragraph, document." }
+```
+
+Or pass pre-split segments:
+
+```json
+{ "segments": ["First paragraph...", "Second paragraph...", "Third..."] }
+```
+
+### Response
+
+```json
+{
+  "article": {
+    "dominant_angle": 310,
+    "dominant_category": "Psychology",
+    "complexity": 6,
+    "type": "informational",
+    "boem": { "M": 12, "O": 8, "B": 5, "E": 75 }
+  },
+  "segments": [
+    {
+      "text": "...",
+      "paraStart": 0,
+      "paraEnd": 2,
+      "title": "Stress and Burnout Patterns",
+      "angle": 310,
+      "category": "Psychology",
+      "complexity": 6
+    }
+  ]
+}
+```
+
+| Field | Description |
+|-------|-------------|
+| `article.dominant_angle` | 0–350° — the dominant theme angle |
+| `article.dominant_category` | Category name at that angle |
+| `article.complexity` | 1–10 expertise level |
+| `article.type` | `"informational"` / `"narrative"` / `"persuasive"` / etc. |
+| `article.boem` | BOEM profile — % weight on each axis (Mind/Org/Body/Emo) |
+| `segments[].angle` | 0–350°, rounded to nearest 10° |
+| `segments[].category` | One of 36 category names |
+| `segments[].complexity` | 1–10 |
+| `segments[].title` | 3–6 word title in the source language |
+| `segments[].paraStart/paraEnd` | Paragraph index range |
+
+### JavaScript example
+
+```js
+const res = await fetch('https://fisheye-360.vercel.app/api/classify', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ text: document.body.innerText })
+});
+const { article, segments } = await res.json();
+console.log(article.dominant_category, article.dominant_angle + '°');
+```
+
+### Python example
+
+```python
+import requests
+
+r = requests.post(
+    'https://fisheye-360.vercel.app/api/classify',
+    json={'text': open('article.txt').read()}
+)
+data = r.json()
+print(data['article']['dominant_category'], data['article']['dominant_angle'])
+```
+
+### Notes
+
+- Text is split into paragraphs automatically; pass `segments[]` if you've already split it
+- Falls back to keyword matching if the LLM is unavailable
+- `boem` values sum to ~100 and represent the content's axis weights
+
 <svg width="48" height="58" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(315 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#7c3aed"/></g></svg>
 
 <img src="public/fish-eye.jpg" width="180" align="right" style="border-radius:12px;margin-left:1.5rem">
