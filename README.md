@@ -11,7 +11,7 @@ Content-Type: application/json
 { "text": "your text here" }
 ```
 
-Returns `{ article, segments }` — angle (0–350°), category, complexity, BOEM profile. No API key needed.
+Returns `{ article, segments }` — angle (0–350°), category, complexity, MOBE profile. No API key needed.
 
 ---
 
@@ -64,7 +64,7 @@ Or pass pre-split segments:
 | `article.dominant_category` | Category name at that angle |
 | `article.complexity` | 1–10 expertise level |
 | `article.type` | `"informational"` / `"narrative"` / `"persuasive"` / etc. |
-| `article.boem` | BOEM profile — % weight on each axis (Mind/Org/Body/Emo) |
+| `article.boem` | MOBE profile — % weight on each axis (Mind/Org/Body/Emo) |
 | `segments[].angle` | 0–350°, rounded to nearest 10° |
 | `segments[].category` | One of 36 category names |
 | `segments[].complexity` | 1–10 |
@@ -100,7 +100,7 @@ print(data['article']['dominant_category'], data['article']['dominant_angle'])
 
 - Text is split into paragraphs automatically; pass `segments[]` if you've already split it
 - Falls back to keyword matching if the LLM is unavailable
-- `boem` values sum to ~100 and represent the content's axis weights
+- `boem` values sum to ~100 and represent the content's MOBE axis weights (Mind/Org/Body/Emo)
 
 <svg width="48" height="58" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><g transform="rotate(315 50 60)"><path d="M 30 116 C 88 100, 97 26, 50 5 C 3 26, 12 100, 70 116" fill="none" stroke="#1c1c1c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="50" cy="34" r="8" fill="#7c3aed"/></g></svg>
 
