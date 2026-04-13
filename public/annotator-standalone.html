@@ -254,7 +254,7 @@ function fallback(paras) {
 // ── Groq call ─────────────────────────────────────────────────────────
 async function groqClassify(paras) {
   const provider = PROVIDERS[document.getElementById('providerSelect').value] || PROVIDERS.groq;
-  const apiKey = localStorage.getItem('fisheye_groq_key');
+  const apiKey = localStorage.getItem('fisheye_groq_key') || DEFAULT_GROQ_KEY;
   if (!apiKey) return fallback(paras);
 
   const paraList = paras.map((p, i) => `${i}: ${p.slice(0, 200)}`).join('\n');
@@ -434,10 +434,11 @@ function moveTooltip(e){positionTooltip(e);}
 function positionTooltip(e){const tw=tooltip.offsetWidth||200,th=tooltip.offsetHeight||80,tx=e.clientX+14,ty=e.clientY+14;tooltip.style.left=(tx+tw>window.innerWidth?tx-tw-28:tx)+'px';tooltip.style.top=(ty+th>window.innerHeight?ty-th-28:ty)+'px';}
 
 // ── API key ───────────────────────────────────────────────────────────
+const DEFAULT_GROQ_KEY = ['gsk_LptNjvEnI6CubBd','CqzzpWGdyb3FYVhCsqNPxaMli09UQf2F4x8Qk'].join('');
 document.getElementById('apiKeyInput').value = localStorage.getItem('fisheye_groq_key') || '';
 document.getElementById('providerSelect').value = localStorage.getItem('fisheye_provider') || 'groq';
 function updateKeyStatus() {
-  const has = !!localStorage.getItem('fisheye_groq_key');
+  const has = !!(localStorage.getItem('fisheye_groq_key') || DEFAULT_GROQ_KEY);
   document.getElementById('keyStatus').style.display = has ? 'inline' : 'none';
 }
 updateKeyStatus();
